@@ -1,7 +1,6 @@
 Licenses
 
-Model/Textures:	CC-BY-SA 3.0
-				http://creativecommons.org/licenses/by-sa/3.0/de/legalcode
-Author: Sapier
+Model/Textures:	CC-BY-SA 4.0
+				http://creativecommons.org/licenses/by-sa/4.0/de/legalcode
+Author: NPXcoot
 
-texture modification by: blert2112
