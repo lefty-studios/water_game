@@ -342,11 +342,13 @@ mobs:register_egg("mobs_m:dearcmhara", "Dearcmhara", "wool_cyan.png", 1)
 mobs:register_mob("mobs_m:whale", {
 	type = "animal",
 	passive = false,
-	reach = 1,
-	damage = 10,
+	reach = 3,
+	damage = 25,
 	attack_type = "dogfight",
-	hp_min = 25,
-	hp_max = 35,
+	attacks_monsters = true,
+	specific_attack = {"mobs_nssm:octopus","mobs_nssm:kraken","mobs_crocs:crocodile_swim","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_sharks:shark_lg"},
+	hp_min = 250,
+	hp_max = 250,
 	armor = 100,
 	collisionbox = {-4, -2, -4, 4, 2, 4},
 	visual = "mesh",
@@ -358,8 +360,8 @@ mobs:register_mob("mobs_m:whale", {
 	rotate = 180,
 	visual_size = {x=1.5, y=1.5},
 	makes_footstep_sound = true,
-	walk_velocity = 1,
-	run_velocity = 2,
+	walk_velocity = 5,
+	run_velocity = 7,
 	jump = false,	
 	stepheight = 0,
 	fall_damage = 0,
@@ -372,7 +374,7 @@ mobs:register_mob("mobs_m:whale", {
 	follow = {"fishing:fish_cooked"},
 	view_range = 14,
 	drops = {
-		{name = "mobs:meat_raw", chance = 1, min = 1, max = 1},
+		{name = "mobs:meat_raw", chance = 1, min = 50, max = 150},
 	},
 	sounds = {
       random = "whale_1",
@@ -403,7 +405,7 @@ mobs:register_mob("mobs_m:whale", {
 
 mobs:register_egg("mobs_m:whale", "Whale", "default_water.png", 1)
 
-mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 10000, 1000, 12000, -31000, 20)
+mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)
 --[[
 minetest.register_craftitem("mobs_m:smallfish_raw", {
 	description = "Small Raw Fish",

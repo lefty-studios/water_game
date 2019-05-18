@@ -113,7 +113,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:spawn_specific("mobs_crocs:crocodile_float",
 			{"default:water_flowing","default:water_source"},
 			{"default:dirt_with_grass","default:jungle_grass","default:sand","default:dirt","default:papyrus","group:seaplants","dryplants:juncus","dryplants:reedmace"},
-			-1, 18, 30, l_spawn_chance, 1, 25, 31000)
+			-1, 18, 30, l_spawn_chance, 1000, 20, 31000)
 		mobs:register_egg("mobs_crocs:crocodile_float", "Crocodile (floater)", l_egg_texture, 1)
 	end
 
@@ -123,7 +123,8 @@ if mobs.mod and mobs.mod == "redo" then
 			type = "monster",
 			attack_type = "dogfight",
 			attack_animals = true,
-			specific_attack = {"player", "mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:crab"},
+			attack_monsters = true,
+			specific_attack = {"player", "mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:crab","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_sharks:shark_lg"},
 			damage = 8,
 			reach = 1,
 			hp_min = 20,
@@ -160,7 +161,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:spawn_specific("mobs_crocs:crocodile_swim",
 			{"default:water_flowing","default:water_source"},
 			{"default:sand","default:dirt","group:seaplants"},
-			-1, 18, 30, l_spawn_chance, 1, 20, 31000)
+			-1, 18, 30, l_spawn_chance, 1000, -2, 31000)
 		mobs:register_egg("mobs_crocs:crocodile_swim", "Crocodile (swimmer)", l_egg_texture, 1)
 	end
 
