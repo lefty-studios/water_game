@@ -1,6 +1,6 @@
-Minetest Game [minetest_game]
+Water Game [water_game]
 =============================
-A game for the Minetest engine
+A game for the Minetest engine.
 =====================================
 
 To use this game with the Minetest engine, insert this repository as
