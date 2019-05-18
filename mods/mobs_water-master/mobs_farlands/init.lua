@@ -59,7 +59,7 @@ mobs:register_mob("mobs_m:ammonite_s", {
 	hp_min = 15,
 	hp_max = 35,
 	armor = 110,
-	collisionbox = {-0.5, -0.2, -0.5, 0.5, 0.5, 0.5},
+	collisionbox = {-0.25, -0.15, -0.25, 0.25, 0.25, 0.25},
 	visual = "mesh",
 	mesh = "ammonite.b3d",
 	textures = {
@@ -92,8 +92,8 @@ mobs:register_mob("mobs_m:ammonite_s", {
 		run_end = 23,
 	},
 })
-mobs:spawn_specific("mobs_m:ammonite_s", "water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral", "default:water_source", 0, 30, 100, 100, 12000, -31000, 20)
-
+mobs:spawn_specific("mobs_m:ammonite_s", 
+{"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral"}, "default:water_source", 0, 30, 10, 100, 120, -31000, 20)
 mobs:register_egg("mobs_m:ammonite_s", "Small Ammonite", "default_sand.png", 1)
 
 mobs:register_mob("mobs_m:ammonite_b", {
@@ -140,7 +140,7 @@ mobs:register_mob("mobs_m:ammonite_b", {
 	},
 })
 
-mobs:spawn_specific("mobs_m:ammonite_b", "default:water_source", "default:water_source", 0, 30, 1000, 1000, 12000, 0, 20)
+mobs:spawn_specific("mobs_m:ammonite_b", "default:water_source", "default:water_source", 0, 30, 10000, 1000, 1200, 0, 20)
 mobs:register_egg("mobs_m:ammonite_b", "Large Ammonite", "default_sand.png", 1)
 
 mobs:register_mob("mobs_m:trilobite", {

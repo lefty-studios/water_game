@@ -179,7 +179,7 @@ mobs:register_mob("mobs_nssm:crab", {
 })
 
 
-mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 10, 1000, 12000, -31000, 25)
+mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 100, 1000, 12000, -31000, 25)
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
 mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)
