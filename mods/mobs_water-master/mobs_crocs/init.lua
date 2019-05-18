@@ -16,7 +16,7 @@ if mobs.mod and mobs.mod == "redo" then
 	local l_model			= "crocodile.x"
 	local l_sounds			= {random = "croco"}
 	local l_egg_texture		= "default_grass.png"
-	local l_spawn_chance	= 60000
+	local l_spawn_chance	= 600
 
 -- load settings
 	dofile(minetest.get_modpath("mobs_crocs").."/SETTINGS.txt")
@@ -51,6 +51,10 @@ if mobs.mod and mobs.mod == "redo" then
 				chance = 1,
 				min = 1,
 				max = 8,},
+				{name = "mobs_nssm:crocodile_tail",
+				chance = 1,
+				min = 1,
+				max = 2,},
 			},
 			sounds = l_sounds,
 			fly = false,
@@ -66,7 +70,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:spawn_specific("mobs_crocs:crocodile",
 			{"default:dirt_with_grass","default:dirt","default:jungle_grass","default:sand"},
 			{"default:water_flowing","default:water_source","default:papyrus","dryplants:juncus","dryplants:reedmace"},
-			-1, 18, 30, l_spawn_chance, 1, 0, 31000)
+			-1, 18, 30, l_spawn_chance, 1, 25, 31000)
 		mobs:register_egg("mobs_crocs:crocodile", "Crocodile", l_egg_texture, 1)
 	end
 
@@ -91,6 +95,10 @@ if mobs.mod and mobs.mod == "redo" then
 				chance = 1,
 				min = 1,
 				max = 8,},
+				{name = "mobs_nssm:crocodile_tail",
+				chance = 1,
+				min = 1,
+				max = 2,},
 			},
 			sounds = l_sounds,
 			fly = false,
@@ -105,7 +113,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:spawn_specific("mobs_crocs:crocodile_float",
 			{"default:water_flowing","default:water_source"},
 			{"default:dirt_with_grass","default:jungle_grass","default:sand","default:dirt","default:papyrus","group:seaplants","dryplants:juncus","dryplants:reedmace"},
-			-1, 18, 30, l_spawn_chance, 1, -3, 31000)
+			-1, 18, 30, l_spawn_chance, 1, 25, 31000)
 		mobs:register_egg("mobs_crocs:crocodile_float", "Crocodile (floater)", l_egg_texture, 1)
 	end
 
@@ -132,6 +140,10 @@ if mobs.mod and mobs.mod == "redo" then
 				chance = 1,
 				min = 1,
 				max = 8,},
+				{name = "mobs_nssm:crocodile_tail",
+				chance = 1,
+				min = 1,
+				max = 2,},
 			},
 			sounds = l_sounds,
 			fly = true,
@@ -148,7 +160,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:spawn_specific("mobs_crocs:crocodile_swim",
 			{"default:water_flowing","default:water_source"},
 			{"default:sand","default:dirt","group:seaplants"},
-			-1, 18, 30, l_spawn_chance, 1, -8, 31000)
+			-1, 18, 30, l_spawn_chance, 1, 20, 31000)
 		mobs:register_egg("mobs_crocs:crocodile_swim", "Crocodile (swimmer)", l_egg_texture, 1)
 	end
 

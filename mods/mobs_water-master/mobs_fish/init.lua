@@ -27,7 +27,9 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 	local l_trop_textures = {
 		{"fish.png"},
 		{"fish2.png"},
-		{"fish3.png"}
+		{"fish3.png"},
+		{"fish4.png"},
+		{"fish5.png"}
 	}
 
 	if SPRITE_VERSION then
@@ -69,7 +71,7 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 	--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
 	mobs:spawn_specific("mobs_fish:clownfish", l_spawn_in, l_spawn_near, 0, 30, 10, l_spawn_chance, 12000, -31000, l_water_level)
 	mobs:register_egg("mobs_fish:clownfish", "Clownfish", "animal_clownfish_clownfish_item.png", 0)
-
+	
 -- Tropical fish
 	mobs:register_mob("mobs_fish:tropical", {
 		type = "animal",
@@ -94,14 +96,30 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 		light_damage = 0,
 		animation = l_anims,
 		on_rightclick = function(self, clicker)
-			mobs:capture_mob(self, clicker, l_cc_hand, l_cc_net, 0, true, nil)
+			mobs:capture_mob(self, clicker, l_cc_hand, l_cc_net, 0, true, "mobs_fish:tropical")
 		end
 	})
 	--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
 	mobs:spawn_specific("mobs_fish:tropical", l_spawn_in, l_spawn_near, 0, 100, 10, l_spawn_chance, 120000, -31000, l_water_level)
 	mobs:register_egg("mobs_fish:tropical", "Tropical fish", "animal_fish_blue_white_fish_blue_white_item.png", 0)
+	
+	minetest.override_item("mobs_fish:tropical", {
+		on_use = minetest.item_eat(2),    
+	})
+	
+	minetest.register_craftitem("mobs_fish:tropical_cooked", {
+		description = "Cooked Tropical fish",
+		inventory_image = "animal_fish_blue_white_fish_blue_white_item_cooked.png",
+		on_use = minetest.item_eat(5), 
+	})
+	minetest.register_craft({
+	type = "cooking",
+	output = "mobs_fish:tropical_cooked",
+	recipe = "mobs_fish:tropical",
+	cooktime = 2,
+})
 -- Tropical fish
-	mobs:register_mob("mobs_fish:big_fish", {
+	--[[mobs:register_mob("mobs_fish:big_fish", {
 		type = "animal",
 		passive = true,
 		hp_min = 10,
@@ -131,5 +149,5 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 	--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
 	mobs:spawn_specific("mobs_fish:big_fish", l_spawn_in, l_spawn_near, 0, 100, 10, l_spawn_chance, 120000, -31000, l_water_level)
 	mobs:register_egg("mobs_fish:big_fish", "Tropical fish", "animal_fish_blue_white_fish_blue_white_item.png", 0)
-
+]]--+
 end
