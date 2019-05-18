@@ -1,7 +1,6 @@
-Minetest Game API
+Water Game API
 =================
-GitHub Repo: https://github.com/minetest/minetest_game
-
+GitHub Repo: https://github.com/lefty-studios/water_game_git
 
 Introduction
 ------------
