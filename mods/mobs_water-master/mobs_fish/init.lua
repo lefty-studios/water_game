@@ -104,19 +104,21 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 	mobs:register_egg("mobs_fish:tropical", "Tropical fish", "animal_fish_blue_white_fish_blue_white_item.png", 0)
 	
 	minetest.override_item("mobs_fish:tropical", {
-		on_use = minetest.item_eat(2),    
+		on_use = minetest.item_eat(2),
+		groups = {fish=1},
 	})
 	
 	minetest.register_craftitem("mobs_fish:tropical_cooked", {
 		description = "Cooked Tropical fish",
 		inventory_image = "animal_fish_blue_white_fish_blue_white_item_cooked.png",
 		on_use = minetest.item_eat(5), 
+		groups = {cooked_fish=1},
 	})
 	minetest.register_craft({
 	type = "cooking",
 	output = "mobs_fish:tropical_cooked",
 	recipe = "mobs_fish:tropical",
-	cooktime = 2,
+	cooktime = 3,
 })
 -- Tropical fish
 	--[[mobs:register_mob("mobs_fish:big_fish", {
