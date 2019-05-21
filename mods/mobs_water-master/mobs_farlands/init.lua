@@ -1,4 +1,4 @@
---[[
+
 mobs:register_mob("mobs_m:smallfish", {
 	type = "animal",
 	passive = true,
@@ -27,10 +27,6 @@ mobs:register_mob("mobs_m:smallfish", {
 	fly_in = "default:water_source",
 	fall_damage = 0,
 	fall_speed = 0,
-	drops = {
-		{name = "mobs_m:smallfish_raw",
-		chance = 9, min = 1, max = 1},
-	},
 	water_damage = 0,
 	lava_damage = 1,
 	light_damage = 0,
@@ -44,12 +40,37 @@ mobs:register_mob("mobs_m:smallfish", {
 		run_start = 1,
 		run_end = 20,
 	},
+	on_rightclick = function(self, clicker)
+		mobs:capture_mob(self, clicker, l_cc_hand, l_cc_net, 0, true, "mobs_m:smallfish")
+	end
 })
 
 mobs:register_spawn("mobs_m:smallfish", {"default:water_source",}, 20, 10, 15000, 20, 11000)
 
 mobs:register_egg("mobs_m:smallfish", "Small Fish", "default_water.png", 1)
-]]
+
+
+minetest.override_item("mobs_m:smallfish", {
+	description = "Small Raw Fish",
+	inventory_image = "mobs_smallfish_item.png",
+	on_use = minetest.item_eat(1), 
+	groups = {fish=1},
+})
+
+minetest.register_craftitem("mobs_m:smallfish_cooked", {
+	description = "Small Cooked Fish",
+	inventory_image = "mobs_smallfish_cooked.png",
+	on_use = minetest.item_eat(3)
+	groups = {cooked_fish=1},
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "mobs_m:smallfish_cooked",
+	recipe = "mobs_m:smallfish",
+	cooktime = 3,
+})
+
 mobs:register_mob("mobs_m:ammonite_s", {
 	type = "animal",
 	passive = true,
@@ -93,7 +114,7 @@ mobs:register_mob("mobs_m:ammonite_s", {
 	},
 })
 mobs:spawn_specific("mobs_m:ammonite_s", 
-{"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral"}, "default:water_source", 0, 30, 100, 100, 120, -31000, 20)
+{"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral"}, "default:water_source", 0, 30, 100, 1000, 120, -31000, 20)
 mobs:register_egg("mobs_m:ammonite_s", "Small Ammonite", "default_sand.png", 1)
 
 mobs:register_mob("mobs_m:ammonite_b", {
@@ -405,24 +426,4 @@ mobs:register_mob("mobs_m:whale", {
 
 mobs:register_egg("mobs_m:whale", "Whale", "default_water.png", 1)
 
-mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 1000, 10000, 12, -31000, 20)
---[[
-minetest.register_craftitem("mobs_m:smallfish_raw", {
-	description = "Small Raw Fish",
-	inventory_image = "mobs_smallfish_item.png",
-	on_use = minetest.item_eat(1)
-})
-
-minetest.register_craftitem("mobs_m:smallfish_cooked", {
-	description = "Small Cooked Fish",
-	inventory_image = "mobs_smallfish_cooked.png",
-	on_use = minetest.item_eat(2)
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs_m:smallfish_raw",
-	recipe = "mobs_m:smallfish_cooked",
-	cooktime = 3,
-})
-]]
+mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)
