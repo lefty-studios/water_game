@@ -171,8 +171,8 @@ minetest.register_craft({
 
 doors.register("door_"..color.."coral", {
 		tiles = {"doors_door_coral_"..color..".png"},
-		description = name.." Door",
-		inventory_image = "doors_item_obsidian_glass.png",
+		description = name.." Coral Door",
+		inventory_image = "doors_item_"..color..".png",
 		groups = {cracky=3},
 		sounds = default.node_sound_glass_defaults(),
 		sound_open = "doors_glass_door_open",

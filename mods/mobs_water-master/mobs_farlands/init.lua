@@ -60,7 +60,7 @@ minetest.override_item("mobs_m:smallfish", {
 minetest.register_craftitem("mobs_m:smallfish_cooked", {
 	description = "Small Cooked Fish",
 	inventory_image = "mobs_smallfish_cooked.png",
-	on_use = minetest.item_eat(3)
+	on_use = minetest.item_eat(3),
 	groups = {cooked_fish=1},
 })
 
