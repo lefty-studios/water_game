@@ -107,6 +107,12 @@ minetest.register_node("water:coral_glow", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_craft({
+	type = "fuel",
+	recipe = "water:coral_glow",
+	burntime = 7,
+})
+
 --[[
 minetest.register_node("water:pink_coral", {
 	description = "Pink Coral",
@@ -271,6 +277,8 @@ minetest.register_craft({
 	output = "water:sea_stone",
 	recipe = "water:sea_cobble",
 })
+
+
 
 minetest.register_node("water:sea_stone_with_iron", {
 	description = "Iron Ore",

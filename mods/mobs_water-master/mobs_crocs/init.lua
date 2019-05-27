@@ -16,7 +16,7 @@ if mobs.mod and mobs.mod == "redo" then
 	local l_model			= "crocodile.x"
 	local l_sounds			= {random = "croco"}
 	local l_egg_texture		= "default_grass.png"
-	local l_spawn_chance	= 600
+	local l_spawn_chance	= 6000
 
 -- load settings
 	dofile(minetest.get_modpath("mobs_crocs").."/SETTINGS.txt")
@@ -45,7 +45,7 @@ if mobs.mod and mobs.mod == "redo" then
 			visual = "mesh",
 			mesh = l_model,
 			textures = l_skins,
-			visual_size = {x=4, y=4},
+			visual_size = {x = 4, y = 4},
 			drops = {
 				{name = "mobs_nssm:crocodile_skin",
 				chance = 1,
