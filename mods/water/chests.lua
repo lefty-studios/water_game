@@ -1,8 +1,10 @@
---[[function water.register_tools (color, name)
 
-minetest.register_tool("default:pick_coral_"..color, {
-	description = "Coral "..color.." Pickaxe",
-	inventory_image = "default_tool_coral_"..color.."_pick.png",
+--[[
+water:pink_coral
+
+minetest.register_tool("default:pick_coral", {
+	description = "Coral Pickaxe",
+	inventory_image = "default_tool_coralpick.png",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -16,7 +18,7 @@ minetest.register_tool("default:pick_coral_"..color, {
 
 minetest.register_tool("default:shovel_coral", {
 	description = "Coral Shovel",
-	inventory_image = "default_tool_coral_"..color.."shovel.png",
+	inventory_image = "default_tool_coralshovel.png",
 	wield_image = "default_tool_steelshovel.png^[transformR90",
 	tool_capabilities = {
 		full_punch_interval = 1.1,
@@ -31,7 +33,7 @@ minetest.register_tool("default:shovel_coral", {
 
 minetest.register_tool("default:axe_coral", {
 	description = "Coral Axe",
-	inventory_image = "default_tool_coral_"..color.."axe.png",
+	inventory_image = "default_tool_coralaxe.png",
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
@@ -45,7 +47,7 @@ minetest.register_tool("default:axe_coral", {
 
 minetest.register_tool("default:sword_steel", {
 	description = "Steel Sword",
-	inventory_image = "default_tool_coral_"..color.."sword.png",
+	inventory_image = "default_tool_steelsword.png",
 	tool_capabilities = {
 		full_punch_interval = 0.8,
 		max_drop_level=1,

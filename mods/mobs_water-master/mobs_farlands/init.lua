@@ -45,7 +45,7 @@ mobs:register_mob("mobs_m:smallfish", {
 	end
 })
 
-mobs:register_spawn("mobs_m:smallfish", {"default:water_source",}, 20, 10, 15000, 20, 11000)
+--mobs:register_spawn("mobs_m:smallfish", {"default:water_source",}, 20, 10, 15000, 20, 11000)
 
 mobs:register_egg("mobs_m:smallfish", "Small Fish", "default_water.png", 1)
 
@@ -426,4 +426,57 @@ mobs:register_mob("mobs_m:whale", {
 
 mobs:register_egg("mobs_m:whale", "Whale", "default_water.png", 1)
 
-mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)
+mobs:spawn_specific("mobs_m:whale", "default:water_source", "default:water_source", 0, 30, 1000, 10000, 12, -31000, 20)
+
+mobs:register_mob("mobs_m:ore_crab", {
+	type = "animal",
+	passive = false,
+	reach = 2,
+	damage = 5,
+	attack_type = "dogfight",
+	hp_min = 15,
+	hp_max = 32,
+	armor = 110,
+	collisionbox = {-0.35,0,-0.35, 0.35,0.8,0.35},
+	visual = "mesh",
+	mesh = "cavecrab.b3d",
+	attacks_monsters = true,
+	textures = {
+		{"mobs_cavecrab.png^(mobs_cavecrab_stone.png^[colorize:#008b82:100)"},
+	},
+	blood_texture = "mobs_blood.png",
+	makes_footstep_sound = true,
+	walk_velocity = 1.5,
+	run_velocity = 2.5,
+	jump = 1,
+	water_damage = 0,
+	lava_damage = 2,
+	light_damage = 0,
+	fall_damage = 1,
+	view_range = 17,
+		floats = 0,
+	drops = {
+		{name = "water:sea_stone", chance = 2, min = 1, max = 1},
+		{name = "mobs_nssm:surimi",
+		chance = 1,
+		min = 1,
+		max = 2,},
+	},
+	animation = {
+	--different stand animation from 1 to 15
+		normal_speed = 20,
+		run_speed = 25,
+		stand_start = 45,
+		stand_end = 65,
+		walk_start = 20,
+		walk_end = 40,
+		run_start = 20,
+		run_end = 40,
+		punch_start = 20,
+		punch_end = 40,
+	},
+})
+
+
+mobs:register_egg("mobs_m:ore_crab", "Stone Crab", "(default_stone.png^[colorize:#008b82:100)", 1)
+mobs:spawn_specific("mobs_m:ore_crab", "water:sea_stone", "default:water_source", 0, 30, 10, 100, 12, -31000, 20)

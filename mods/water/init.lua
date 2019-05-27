@@ -1,6 +1,7 @@
 local path = minetest.get_modpath(minetest.get_current_modname())
 dofile(path .. "/mapgen.lua")
 dofile(path .. "/tools.lua")
+dofile(path .. "/ores.lua")
 
 minetest.register_node(":default:water_source", {
 	description = "Water Source",
@@ -209,4 +210,107 @@ minetest.register_node("water:chest_air", {
                           -- that used to be there)
     drop = "",
     groups = {not_in_creative_inventory=1}
+})
+
+--
+-- Stone
+--
+minetest.register_node("water:sea_stone", {
+	description = "Sea Stone",
+	tiles = {"default_stone.png^[colorize:#008b82:100"},
+	groups = {cracky = 3, stone = 1},
+	drop = 'water:sea_cobble',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("water:sea_cobble", {
+	description = "Sea Cobblestone",
+	tiles = {"default_cobble.png^[colorize:#008b82:100"},
+	is_ground_content = false,
+	groups = {cracky = 3, stone = 2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("water:sea_stonebrick", {
+	description = "Sea Stone Brick",
+	paramtype2 = "facedir",
+	place_param2 = 0,
+	tiles = {"default_stone_brick.png^[colorize:#008b82:100"},
+	is_ground_content = false,
+	groups = {cracky = 2, stone = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("water:sea_stone_block", {
+	description = "Sea Stone Block",
+	tiles = {"default_stone_block.png^[colorize:#008b82:100"},
+	is_ground_content = false,
+	groups = {cracky = 2, stone = 1},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = 'water:sea_stonebrick 4',
+	recipe = {
+		{'water:sea_stone', 'water:sea_stone'},
+		{'water:sea_stone', 'water:sea_stone'},
+	}
+})
+
+minetest.register_craft({
+	output = 'water:sea_stone_block 9',
+	recipe = {
+		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
+		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
+		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
+	}
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "water:sea_stone",
+	recipe = "water:sea_cobble",
+})
+
+minetest.register_node("water:sea_stone_with_iron", {
+	description = "Iron Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_iron.png"},
+	groups = {cracky = 2},
+	drop = 'default:iron_lump',
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_copper", {
+	description = "Copper Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_copper.png"},
+	groups = {cracky = 2},
+	drop = 'default:copper_lump',
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_tin", {
+	description = "Tin Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_tin.png"},
+	groups = {cracky = 2},
+	drop = "default:tin_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_mese", {
+	description = "Mese Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_mese.png"},
+	groups = {cracky = 1},
+	drop = "default:mese_crystal",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_gold", {
+	description = "Gold Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_gold.png"},
+	groups = {cracky = 2},
+	drop = "default:gold_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_diamond", {
+	description = "Diamond Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_diamond.png"},
+	groups = {cracky = 2},
+	drop = "default:diamond_lump",
+	sounds = default.node_sound_stone_defaults(),
 })

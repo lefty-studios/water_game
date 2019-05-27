@@ -80,7 +80,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 45,
 		humidity_point = 70,
 	})
-
+--[[
 	minetest.register_biome({
 		name = "coniferous_forest_ocean",
 		node_top = "default:sand",
@@ -93,7 +93,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		y_min = -112,
 		heat_point = 45,
 		humidity_point = 70,
-	})
+	})]]
 
 	-- Deciduous forest
 
@@ -325,6 +325,22 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 86,
 		humidity_point = 65,
 	})
+	--[[
+	minetest.register_biome({
+		name = "ore biome",
+		node_top = "water:sea_stone",
+		depth_top = 1,
+		node_filler = "water:sea_stone",
+		depth_filler = 3,
+		node_stone = "water:sea_stone",
+		node_riverbed = "default:sand",
+		depth_riverbed = 2,
+		y_max = 3,
+		y_min = -112,
+		heat_point = 45,
+		humidity_point = 70,
+	})]]
+
 
 	-- Underground
 
@@ -335,6 +351,26 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 50,
 		humidity_point = 50,
 	})
+
+---Spawn the stone
+minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "water:sea_stone",
+		wherein         = {"default:sand"},
+		clust_scarcity  = 32 * 32 * 32,
+		clust_size      = 8,
+		y_min           = -15,
+		y_max           = 0,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 8, y = 5, z = 8},
+			seed = -316,
+			octaves = 1,
+			persist = 0.0
+		},
+})
 
 
 local function register_grass_decoration(offset, scale, length)
@@ -1045,4 +1081,3 @@ function register_decorations()
 	})]]
 end
 register_decorations()
-

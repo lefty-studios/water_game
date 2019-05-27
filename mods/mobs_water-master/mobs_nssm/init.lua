@@ -7,7 +7,7 @@ mobs:register_mob("mobs_nssm:kraken", {
 	hp_min = 350,
 	attack_animals = true,
 	--attack_players =false,
-	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_nssm:kraken","mobs_m:whale"},
+	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_nssm:kraken"},
 	collisionbox = {-2, 0, -2, 2, 4, 2},
 	visual = "mesh",
 	mesh = "kraken.x",
@@ -66,7 +66,7 @@ mobs:register_mob("mobs_nssm:octopus", {
 	attack_animals = true,
 	attack_monsters = true,
 	--attack_players = false,
-	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_m:whale"},
+	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab"},
 	collisionbox = {-0.9, -0.5, -0.9, 0.9, 0.92, 0.9},
 	visual = "mesh",
 	mesh = "octopus.x",
@@ -178,11 +178,75 @@ mobs:register_mob("mobs_nssm:crab", {
 	}
 })
 
+mobs:register_mob("mobs_nssm:bloco", {
+	type = "monster",
+	hp_max = 24,
+	hp_min = 14,
+	collisionbox = {-0.56, -0.2, -0.56, 0.56, 1.2, 0.56},
+	visual = "mesh",
+	mesh = "bloco.x",
+	textures = {{"bloco.png^[colorize:#008b82:100"}},
+	visual_size = {x=4, y=4},
+	makes_footstep_sound = true,
+	view_range = 8,
+	fear_height = 4,
+	walk_velocity = 0.6,
+	run_velocity = 2.5,
+    rotate = 270,
+    sounds = {
+		random = "bloco",
+	},
+	damage = 4,
+	reach = 2,
+	jump = true,
+	drops = {
+		{name = "water:sea_stone",
+		chance = 1,
+		min = 2,
+		max = 3,},
+		{name = "mobs_nssm:bloco_skin",
+		chance = 1,
+		min = 1,
+		max = 3,},
+	},
+	armor = 40,
+	drawtype = "front",
+	floats = 0,
+	water_damage = 0,
+	lava_damage = 1,
+	light_damage = 0,
+	group_attack=true,
+	attack_animals=true,
+	knock_back=0,
+	--attacks_monsters = true,
+	blood_texture="stone_blood.png^[colorize:#008b82:100",
+	immune_to={{'default:sword_stone', -2},{'default:stone', -2}, {'default:cobble', -2}, {'default:axe_stone', -2}, {'default:shovel_stone', -2}, {'default:pick_stone', -2}},
+	stepheight=1.1,
+	on_rightclick = nil,
+	attack_type = "dogfight",
+	animation = {
+		speed_normal = 20,
+		speed_run = 20,
+		stand_start = 90,
+		stand_end = 110,
+		walk_start = 1,
+		walk_end = 80,
+		run_start = 120,
+		run_end = 160,
+		punch_start = 170,
+		punch_end = 190,
+	}
+})
 
-mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 100, 1000, 12000, -31000, 25)
+
+mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 10, 1000, 12000, -31000, 25)
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
 mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)
+mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)
+
+
+
 
 end
 function nssm_register_eatcraftitems (name, descr, gnam)
@@ -216,6 +280,7 @@ end
 nssm_register_noneatcraftitems ('crab_chela','Crab Chela')
 nssm_register_noneatcraftitems ('crab_carapace_fragment','Crab Carapace Fragment')
 nssm_register_noneatcraftitems ('crocodile_skin','Crocodile Skin')
+nssm_register_noneatcraftitems ('bloco_skin','Bloco Skin')
 
 function nssm_register_recip (ingredient, dish, tictac)
 
@@ -237,9 +302,11 @@ if minetest.get_modpath("3d_armor") then
 --Armors
 		local stats = {
 			croco = {name="Crocodile", armor=3, heal=0, use=450},
+			bloco = {name="Bloco", armor=5, heal=0, use=700},
 		}
 		local materials = {
 			croco="mobs_nssm:crocodile_skin",
+			bloco ="mobs_nssm:bloco_skin",
 		}
 
 		for k, v in pairs(stats) do
@@ -330,6 +397,7 @@ if minetest.get_modpath("3d_armor") then
 			end
 		end
 end
+
 minetest.register_tool("mobs_nssm:crab_light_mace", {
 	description = "Light Crab Mace",
 	inventory_image = "crab_light_mace.png",
