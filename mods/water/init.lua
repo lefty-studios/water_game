@@ -113,6 +113,9 @@ minetest.register_craft({
 	burntime = 7,
 })
 
+minetest.override_item("default:coral_pink", {
+    groups = {snappy = 3, stick = 1},
+})
 --[[
 minetest.register_node("water:pink_coral", {
 	description = "Pink Coral",
