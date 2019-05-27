@@ -440,7 +440,7 @@ mobs:register_mob("mobs_m:ore_crab", {
 	collisionbox = {-0.35,0,-0.35, 0.35,0.8,0.35},
 	visual = "mesh",
 	mesh = "cavecrab.b3d",
-	attacks_monsters = true,
+	--attacks_monsters = true,
 	textures = {
 		{"mobs_cavecrab.png^(mobs_cavecrab_stone.png^[colorize:#008b82:100)"},
 	},
