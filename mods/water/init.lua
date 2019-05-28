@@ -113,44 +113,18 @@ minetest.register_craft({
 	burntime = 7,
 })
 
-minetest.override_item("default:coral_pink", {
-    groups = {snappy = 3, stick = 1},
-})
---[[
-minetest.register_node("water:pink_coral", {
-	description = "Pink Coral",
-	--tiles = {"default_coral.png^[colorize:#fd16d5:75"},
-	tiles = {"default_coral_purple.png"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("water:teal_coral", {
-	description = "Teal Coral",
-	tiles = {"default_coral_teal.png"},
-	--tiles = {"default_coral.png^[colorize:#19ed96:75"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
+minetest.register_craftitem("water:coral_stick", {
+	description = "Coral Stick",
+	inventory_image = "coral_stick.png",
+	groups = {stick = 1},
 })
 
 minetest.register_craft({
-	output = "water:teal_coral_brick",
+	output = "water:coral_stick 4",
 	recipe = {
-		{"", "", ""},
-		{"water:teal_coral", "water:teal_coral", ""},
-		{"water:teal_coral", "water:teal_coral", ""}
+		{"default:coral_pink"}
 	}
 })
-
-minetest.register_node("water:teal_coral_brick", {
-	description = "Teal Coral Brick",
-	tiles = {"default_coral_teal.png^water_overlay_brick.png"},
-	--tiles = {"default_coral_brick.png^[colorize:#19ed96:75"},
-	groups = {cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-})
-]]
-
 
 function register_coral (color, name)
 
@@ -280,8 +254,6 @@ minetest.register_craft({
 	output = "water:sea_stone",
 	recipe = "water:sea_cobble",
 })
-
-
 
 minetest.register_node("water:sea_stone_with_iron", {
 	description = "Iron Ore",
