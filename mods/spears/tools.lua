@@ -23,7 +23,7 @@ function spears_register_spear(kind, desc, eq, toughness, material)
 			full_punch_interval = 1.5,
 			max_drop_level=1,
 			groupcaps={
-				cracky = {times={[3]=2}, uses=toughness, maxlevel=1},
+				cracky = {times={[3]=5}, uses=toughness, maxlevel=1},
 			},
 			damage_groups = {fleshy=eq},
 		}
@@ -36,14 +36,14 @@ function spears_register_spear(kind, desc, eq, toughness, material)
 	minetest.register_craft({
 		output = 'spears:spear_' .. kind,
 		recipe = {
-			{'group:wood', 'group:wood', material},
+			{'group:stick', 'group:stick', material},
 		}
 	})
 	
 	minetest.register_craft({
 		output = 'spears:spear_' .. kind,
 		recipe = {
-			{material, 'group:wood', 'group:wood'},
+			{material, 'group:stick', 'group:stick'},
 		}
 	})
 end

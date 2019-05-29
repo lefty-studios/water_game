@@ -45,7 +45,7 @@ if mobs.mod and mobs.mod == "redo" then
 			attack_animals = true,
 			attack_monsters = true,
 			--attack_players =false,
-			specific_attack = {"player", "mobs_nssm:crab","mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:kraken","mobs_m:whale","mobs_crocs:crocodile_swim"},
+			specific_attack = {"boats:boat","player", "mobs_nssm:crab","mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:kraken","mobs_m:whale","mobs_crocs:crocodile_swim"},
 			damage = 10,
 			reach = 3,
 			hp_min = 20,

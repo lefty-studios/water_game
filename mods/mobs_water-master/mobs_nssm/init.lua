@@ -7,7 +7,7 @@ mobs:register_mob("mobs_nssm:kraken", {
 	hp_min = 350,
 	attack_animals = true,
 	--attack_players =false,
-	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_nssm:kraken"},
+	--specific_attack = {"boats:boat","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_nssm:kraken","player"},
 	collisionbox = {-2, 0, -2, 2, 4, 2},
 	visual = "mesh",
 	mesh = "kraken.x",
@@ -66,7 +66,7 @@ mobs:register_mob("mobs_nssm:octopus", {
 	attack_animals = true,
 	attack_monsters = true,
 	--attack_players = false,
-	specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab"},
+	--specific_attack = {"player","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab"},
 	collisionbox = {-0.9, -0.5, -0.9, 0.9, 0.92, 0.9},
 	visual = "mesh",
 	mesh = "octopus.x",
@@ -239,7 +239,7 @@ mobs:register_mob("mobs_nssm:bloco", {
 })
 
 
-mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 10, 1000, 12000, -31000, 25)
+mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 100, 1000, 12000, -31000, 25)
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
 mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)

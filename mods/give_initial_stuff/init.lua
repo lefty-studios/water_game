@@ -1,4 +1,4 @@
-local stuff_string = "boats:boat,water:teal_coral_brick 99,spears:spear_steel"
+local stuff_string = "boats:boat,spears:spear_coral"
 
 give_initial_stuff = {
 	items = {}

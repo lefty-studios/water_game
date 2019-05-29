@@ -132,7 +132,7 @@ minetest.register_node("water:"..color.."_coral", {
 	description = name.." Coral",
 	tiles = {"default_coral_"..color..".png"},
 	--tiles = {"default_coral_brick.png^[colorize:#19ed96:75"},
-	groups = {cracky = 3},
+	groups = {cracky = 3, coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -140,7 +140,7 @@ minetest.register_node("water:"..color.."_coral_brick", {
 	description = name.." Coral Brick",
 	tiles = {"default_coral_"..color..".png^water_overlay_brick.png"},
 	--tiles = {"default_coral_brick.png^[colorize:#19ed96:75"},
-	groups = {cracky = 3},
+	groups = {cracky = 3,coral = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
