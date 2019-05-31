@@ -437,7 +437,9 @@ mobs:register_mob("mobs_m:ore_crab", {
 	hp_min = 15,
 	hp_max = 32,
 	armor = 110,
-	collisionbox = {-0.35,0,-0.35, 0.35,0.8,0.35},
+	attack_monsters = true,
+	specific_attack = {"mobs_nssm:bloco"},
+	collisionbox = {-0.5, -0.1, -0.5, 0.5, 1, 0.5},
 	visual = "mesh",
 	mesh = "cavecrab.b3d",
 	--attacks_monsters = true,
@@ -481,4 +483,4 @@ mobs:register_mob("mobs_m:ore_crab", {
 
 
 mobs:register_egg("mobs_m:ore_crab", "Stone Crab", "(default_stone.png^[colorize:#008b82:100)", 1)
-mobs:spawn_specific("mobs_m:ore_crab", "water:sea_stone", "default:water_source", 0, 30, 10, 100, 12, -31000, 20)
+mobs:spawn_specific("mobs_m:ore_crab", "water:sea_stone", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)

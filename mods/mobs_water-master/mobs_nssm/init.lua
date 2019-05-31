@@ -219,7 +219,7 @@ mobs:register_mob("mobs_nssm:bloco", {
 	attack_animals=true,
 	knock_back=0,
 	--attacks_monsters = true,
-	blood_texture="stone_blood.png^[colorize:#008b82:100",
+	--blood_texture="stone_blood.png^[colorize:#008b82:100",
 	immune_to={{'default:sword_stone', -2},{'default:stone', -2}, {'default:cobble', -2}, {'default:axe_stone', -2}, {'default:shovel_stone', -2}, {'default:pick_stone', -2}},
 	stepheight=1.1,
 	on_rightclick = nil,
@@ -243,7 +243,7 @@ mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
 mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)
-mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 100, 1000, 12, -31000, 20)
+mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 1000, 1000, 12, -31000, 20)
 
 
 

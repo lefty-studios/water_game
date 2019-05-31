@@ -139,7 +139,7 @@ minetest.register_node("water:lava_source", {
 	liquid_renewable = false,
 	damage_per_second = 4 * 2,
 	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
-	groups = {liquid = 2, igniter = 1},
+	groups = {liquid = 2},
 })
 
 minetest.register_node("water:lava_flowing", {
@@ -185,7 +185,7 @@ minetest.register_node("water:lava_flowing", {
 	liquid_renewable = false,
 	damage_per_second = 4 * 2,
 	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
-	groups = {liquid = 2, igniter = 1,
+	groups = {liquid = 2,
 		not_in_creative_inventory = 1},
 })
 
@@ -294,6 +294,29 @@ minetest.register_node("water:chest_air", {
     groups = {not_in_creative_inventory=1}
 })
 
+minetest.register_node("water:lava_air", {
+	description = "Hacker",
+    drawtype = "airlike",
+    paramtype = "light",
+    sunlight_propagates = true,
+
+    walkable     = false, -- Would make the player collide with the air node
+    pointable    = false, -- You can't select the node
+    diggable     = false, -- You can't dig the node
+    buildable_to = true,  -- Nodes can be replace this node.
+                          -- (you can place a node and remove the air node
+                          -- that used to be there)
+    drop = "",
+    groups = {not_in_creative_inventory=1}
+})
+minetest.register_abm({
+    nodenames = {"water:lava_air"},
+    interval = 1,
+    chance = 1,
+    action = function(pos, node)
+		minetest.set_node(pos, {name = "water:lava_source"})
+    end,
+})
 --
 -- Stone
 --
