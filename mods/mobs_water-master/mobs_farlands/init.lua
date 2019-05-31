@@ -443,6 +443,7 @@ mobs:register_mob("mobs_m:ore_crab", {
 	--attacks_monsters = true,
 	textures = {
 		{"mobs_cavecrab.png^(mobs_cavecrab_stone.png^[colorize:#008b82:100)"},
+		--{"mobs_cavecrab.png^(mobs_cavecrab_stone.png^[colorize:#008b82:100)^mobs_cavecrab_iron.png"},
 	},
 	blood_texture = "mobs_blood.png",
 	makes_footstep_sound = true,
@@ -456,7 +457,8 @@ mobs:register_mob("mobs_m:ore_crab", {
 	view_range = 17,
 		floats = 0,
 	drops = {
-		{name = "water:sea_stone", chance = 2, min = 1, max = 1},
+		{name = "water:sea_stone", chance = 1, min = 1, max = 1},
+		{name = "default:iron_lump", chance = 10, min = 1, max = 1},
 		{name = "mobs_nssm:surimi",
 		chance = 1,
 		min = 1,

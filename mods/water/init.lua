@@ -348,11 +348,11 @@ minetest.register_craft({
 minetest.register_abm({
     nodenames = {"water:magma"},
     interval = 1,
-    chance = 6,
+    chance = 30,
     action = function(pos, node)
         minetest.add_particlespawner(
-            32,
-            4,
+            5,
+            2,
             {x=pos.x-0.01, y=pos.y-0.25, z=pos.z-0.01},
             {x=pos.x+0.01, y=pos.y+0.25, z=pos.z+0.01},
             {x=-0.2, y=-0.8, z=-0.2},

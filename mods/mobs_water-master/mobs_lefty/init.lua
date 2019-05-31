@@ -59,10 +59,10 @@ if mobs.mod and mobs.mod == "redo" then
 			animation = l_anims
 		})
 		--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-	--[[	mobs:spawn_specific("mobs_crocs:crocodile_swim",
+		mobs:spawn_specific("mobs_lefty:water_monster",
+			{"water:sea_stone"},
 			{"default:water_flowing","default:water_source"},
-			{"default:sand","default:dirt","group:seaplants"},
-			-1, 18, 30, l_spawn_chance, 1000, -2, 31000)]]
+			-1, 18, 30, l_spawn_chance, 1000, -2, 31000)
 		mobs:register_egg("mobs_lefty:water_monster", "Water Monster", l_egg_texture, 1)
 
 end

@@ -316,3 +316,37 @@ default.chest.register_chest("chest_locked", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 2},
 	protected = true,
 })
+--[[
+default.chest.register_chest("coral_chest", {
+	description = "Coral Chest",
+	tiles = {
+		"default_chest_top.png",
+		"default_chest_top.png",
+		"default_chest_side.png",
+		"default_chest_side.png",
+		"default_chest_front.png",
+		"default_chest_inside.png"
+	},
+	sounds = default.node_sound_wood_defaults(),
+	sound_open = "default_chest_open",
+	sound_close = "default_chest_close",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2},
+})
+
+default.chest.register_chest("coral_chest_locked", {
+	description = "Coral Locked Chest",
+	tiles = {
+		"default_chest_top.png",
+		"default_chest_top.png",
+		"default_chest_side.png",
+		"default_chest_side.png",
+		"default_chest_lock.png",
+		"default_chest_inside.png"
+	},
+	sounds = default.node_sound_wood_defaults(),
+	sound_open = "default_chest_open",
+	sound_close = "default_chest_close",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2},
+	protected = true,
+})
+]]
