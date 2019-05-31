@@ -1,4 +1,66 @@
+minetest.register_node("water:sea_stone_with_iron", {
+	description = "Iron Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_iron.png"},
+	groups = {cracky = 2},
+	drop = 'default:iron_lump',
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_copper", {
+	description = "Copper Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_copper.png"},
+	groups = {cracky = 2},
+	drop = 'default:copper_lump',
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_tin", {
+	description = "Tin Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_tin.png"},
+	groups = {cracky = 2},
+	drop = "default:tin_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_mese", {
+	description = "Mese Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_mese.png"},
+	groups = {cracky = 1},
+	drop = "default:mese_crystal",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_gold", {
+	description = "Gold Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_gold.png"},
+	groups = {cracky = 2},
+	drop = "default:gold_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_node("water:sea_stone_with_diamond", {
+	description = "Diamond Ore",
+	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_diamond.png"},
+	groups = {cracky = 2},
+	drop = "default:diamond_lump",
+	sounds = default.node_sound_stone_defaults(),
+})
 
+minetest.register_ore({
+    ore_type       = "scatter",
+    ore            = "water:magma",
+    wherein        = "default:obsidian",
+    clust_scarcity = 8*8*8,
+    clust_num_ores = 30,
+    clust_size     = 30,
+    height_min     = -31000,
+    height_max     = 0,
+})
+minetest.register_ore({
+    ore_type       = "scatter",
+    ore            = "water:magma",
+    wherein        = "default:obsidian",
+    clust_scarcity = 8*8*8,
+    clust_num_ores = 30,
+    clust_size     = 8,
+    height_min     = -31000,
+    height_max     = 0,
+})
 ---Spawn the stone
 minetest.register_ore({
 		ore_type        = "blob",
@@ -18,7 +80,6 @@ minetest.register_ore({
 			persist = 0.0
 		},
 })
-
 
 
 -- Scatter ores

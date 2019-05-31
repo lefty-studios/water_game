@@ -98,6 +98,98 @@ minetest.register_node(":default:water_flowing", {
 	sounds = default.node_sound_water_defaults(),
 })
 
+minetest.register_node("water:lava_source", {
+	description = "Lava Source",
+	drawtype = "liquid",
+	tiles = {
+		{
+			name = "default_lava_source_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 3.0,
+			},
+		},
+		{
+			name = "default_lava_source_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 3.0,
+			},
+		},
+	},
+	paramtype = "light",
+	light_source = default.LIGHT_MAX - 1,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "water:lava_flowing",
+	liquid_alternative_source = "water:lava_source",
+	liquid_viscosity = 7,
+	liquid_renewable = false,
+	damage_per_second = 4 * 2,
+	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
+	groups = {liquid = 2, igniter = 1},
+})
+
+minetest.register_node("water:lava_flowing", {
+	description = "Flowing Lava",
+	drawtype = "flowingliquid",
+	tiles = {"default_lava.png"},
+	special_tiles = {
+		{
+			name = "default_lava_flowing_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 3.3,
+			},
+		},
+		{
+			name = "default_lava_flowing_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 3.3,
+			},
+		},
+	},
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	light_source = default.LIGHT_MAX - 1,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "water:lava_flowing",
+	liquid_alternative_source = "water:lava_source",
+	liquid_viscosity = 7,
+	liquid_renewable = false,
+	damage_per_second = 4 * 2,
+	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
+	groups = {liquid = 2, igniter = 1,
+		not_in_creative_inventory = 1},
+})
+
+
 minetest.register_node("water:coral_glow", {
 	description = "Glow Coral",
 	tiles = {"default_coral_yellow.png"},
@@ -120,11 +212,18 @@ minetest.register_craftitem("water:coral_stick", {
 })
 
 minetest.register_craft({
-	output = "water:coral_stick 4",
+	output = "water:coral_stick 2",
 	recipe = {
 		{"default:coral_pink"}
 	}
 })
+minetest.register_craft({
+	output = "default:stick 2",
+	recipe = {
+		{"water:driftwood"}
+	}
+})
+
 
 function register_coral (color, name)
 
@@ -223,15 +322,28 @@ minetest.register_node("water:sea_stonebrick", {
 	groups = {cracky = 2, stone = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
-
+--[[
 minetest.register_node("water:sea_stone_block", {
 	description = "Sea Stone Block",
 	tiles = {"default_stone_block.png^[colorize:#008b82:100"},
 	is_ground_content = false,
 	groups = {cracky = 2, stone = 1},
 	sounds = default.node_sound_stone_defaults(),
-})
+})]]
 
+minetest.register_node("water:magma", {
+	description = "Magma",
+	tiles = {"water_magma.png"},
+	groups = {cracky = 2},
+	paramtype = "light",
+	light_source = 14,
+	sounds = default.node_sound_stone_defaults(),
+})
+minetest.register_craft({
+	type = "fuel",
+	recipe = "water:magma",
+	burntime = 15,
+})
 minetest.register_craft({
 	output = 'water:sea_stonebrick 4',
 	recipe = {
@@ -255,45 +367,56 @@ minetest.register_craft({
 	recipe = "water:sea_cobble",
 })
 
-minetest.register_node("water:sea_stone_with_iron", {
-	description = "Iron Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_iron.png"},
-	groups = {cracky = 2},
-	drop = 'default:iron_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("water:sea_stone_with_copper", {
-	description = "Copper Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_copper.png"},
-	groups = {cracky = 2},
-	drop = 'default:copper_lump',
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("water:sea_stone_with_tin", {
-	description = "Tin Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_tin.png"},
-	groups = {cracky = 2},
-	drop = "default:tin_lump",
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("water:sea_stone_with_mese", {
-	description = "Mese Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_mese.png"},
-	groups = {cracky = 1},
-	drop = "default:mese_crystal",
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("water:sea_stone_with_gold", {
-	description = "Gold Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_gold.png"},
-	groups = {cracky = 2},
-	drop = "default:gold_lump",
-	sounds = default.node_sound_stone_defaults(),
-})
-minetest.register_node("water:sea_stone_with_diamond", {
-	description = "Diamond Ore",
-	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_diamond.png"},
-	groups = {cracky = 2},
-	drop = "default:diamond_lump",
-	sounds = default.node_sound_stone_defaults(),
+minetest.register_node("water:driftwood", {
+	description = "Driftwood",
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	tiles = {"water_drift_wood.png", "water_drift_wood_bottomn.png"},
+	inventory_image = "water_drift_wood.png",
+	wield_image = "water_drift_wood.png",
+	liquids_pointable = true,
+	walkable = false,
+	buildable_to = true,
+	floodable = true,
+	groups = {snappy = 3, flammable = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	node_placement_prediction = "",
+	node_box = {
+		type = "fixed",
+		fixed = {-0.5, -31 / 64, -0.5, 0.5, -15 / 32, 0.5}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16}
+	},
+
+	on_place = function(itemstack, placer, pointed_thing)
+		local pos = pointed_thing.above
+		local node = minetest.get_node(pointed_thing.under)
+		local def = minetest.registered_nodes[node.name]
+		local player_name = placer and placer:get_player_name() or ""
+
+		if def and def.on_rightclick then
+			return def.on_rightclick(pointed_thing.under, node, placer, itemstack,
+					pointed_thing)
+		end
+
+		if def and def.liquidtype == "source" and
+				minetest.get_item_group(node.name, "water") > 0 then
+			if not minetest.is_protected(pos, player_name) then
+				minetest.set_node(pos, {name = "water:driftwood",
+					param2 = math.random(0, 3)})
+				if not (creative and creative.is_enabled_for
+						and creative.is_enabled_for(player_name)) then
+					itemstack:take_item()
+				end
+			else
+				minetest.chat_send_player(player_name, "Node is protected")
+				minetest.record_protection_violation(pos, player_name)
+			end
+		end
+
+		return itemstack
+	end
 })

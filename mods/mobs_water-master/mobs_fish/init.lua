@@ -100,7 +100,7 @@ local SPRITE_VERSION = false	-- set to true to use upright sprites instead of me
 		end
 	})
 	--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-	mobs:spawn_specific("mobs_fish:tropical", l_spawn_in, l_spawn_near, 0, 100, 10, l_spawn_chance, 120000, -31000, l_water_level)
+	mobs:spawn_specific("mobs_fish:tropical", l_spawn_in, l_spawn_near, 0, 100, 10, 10, 12000, -31000, l_water_level)
 	mobs:register_egg("mobs_fish:tropical", "Tropical fish", "animal_fish_blue_white_fish_blue_white_item.png", 0)
 	
 	minetest.override_item("mobs_fish:tropical", {

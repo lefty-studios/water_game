@@ -16,7 +16,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 6,
+		y_min = 20,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -30,8 +30,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 5,
-		y_min = 4,
+		y_max = 21,
+		y_min = 20,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -44,8 +44,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 3,
-		y_min = -112,
+		y_max = 20,
+		y_min = -15,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -75,12 +75,12 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 5,
-		y_min = 4,
+		y_max = 26,
+		y_min = 20,
 		heat_point = 45,
 		humidity_point = 70,
 	})
---[[
+
 	minetest.register_biome({
 		name = "coniferous_forest_ocean",
 		node_top = "default:sand",
@@ -89,11 +89,11 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 3,
-		y_min = -112,
+		y_max = 20,
+		y_min = -15,
 		heat_point = 45,
 		humidity_point = 70,
-	})]]
+	})
 
 	-- Deciduous forest
 
@@ -119,8 +119,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 0,
-		y_min = -1,
+		y_max = 20,
+		y_min = 19,
 		heat_point = 60,
 		humidity_point = 68,
 	})
@@ -134,8 +134,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = -2,
-		y_min = -112,
+		y_max = 19,
+		y_min = -15,
 		heat_point = 60,
 		humidity_point = 68,
 	})
@@ -152,7 +152,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 4,
+		y_min = 25,
 		heat_point = 92,
 		humidity_point = 16,
 	})
@@ -167,8 +167,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 3,
-		y_min = -112,
+		y_max = 25,
+		y_min = -15,
 		heat_point = 92,
 		humidity_point = 16,
 	})
@@ -185,7 +185,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 4,
+		y_min = 25,
 		heat_point = 60,
 		humidity_point = 0,
 	})
@@ -199,8 +199,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_stone = "default:sandstone",
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 3,
-		y_min = -112,
+		y_max = 25,
+		y_min = -15,
 		heat_point = 60,
 		humidity_point = 0,
 	})
@@ -216,22 +216,22 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 4,
+		y_min = 25,
 		heat_point = 40,
 		humidity_point = 0,
 	})
 
 	minetest.register_biome({
 		name = "cold_desert_ocean",
-		node_top = "default:sand",
+		node_top = "default:silver_sand",
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 3,
-		y_min = -112,
+		y_max = 25,
+		y_min = -15,
 		heat_point = 40,
 		humidity_point = 0,
 	})
@@ -260,8 +260,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 0,
-		y_min = -1,
+		y_max = 20,
+		y_min = 19,
 		heat_point = 89,
 		humidity_point = 42,
 	})
@@ -275,8 +275,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = -2,
-		y_min = -112,
+		y_max = 20,
+		y_min = -15,
 		heat_point = 89,
 		humidity_point = 42,
 	})
@@ -305,8 +305,8 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 0,
-		y_min = -1,
+		y_max = 25,
+		y_min = 20,
 		heat_point = 86,
 		humidity_point = 65,
 	})
@@ -320,12 +320,12 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = -2,
-		y_min = -112,
+		y_max = 19,
+		y_min = -15,
 		heat_point = 86,
 		humidity_point = 65,
 	})
-	--[[
+	
 	minetest.register_biome({
 		name = "ore biome",
 		node_top = "water:sea_stone",
@@ -335,12 +335,103 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_stone = "water:sea_stone",
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 3,
+		y_max = -15,
 		y_min = -112,
 		heat_point = 45,
 		humidity_point = 70,
-	})]]
+	})
+		
+	minetest.register_biome({
+		name = "ore biome 1",
+		node_top = "water:sea_stone",
+		depth_top = 1,
+		node_filler = "water:sea_stone",
+		depth_filler = 3,
+		node_stone = "water:sea_stone",
+		node_riverbed = "default:sand",
+		depth_riverbed = 2,
+		y_max = -15,
+		y_min = -112,
+		heat_point = 60,
+		humidity_point = 68,
+	})
 
+	minetest.register_biome({
+		name = "rainforest_ocean 1",
+		node_top = "default:sand",
+		depth_top = 1,
+		node_filler = "default:sand",
+		depth_filler = 3,
+		node_riverbed = "default:sand",
+		depth_riverbed = 2,
+		vertical_blend = 1,
+		y_max = -25,
+		y_min = -112,
+		heat_point = 86,
+		humidity_point = 65,
+	})
+	minetest.register_biome({
+		name = "Savanna ocean 2",
+		node_top = "default:silver_sand",
+		depth_top = 0,
+		node_dust = "default:silver_sand",
+		node_filler = "default:obsidian",
+		depth_filler = 3,
+		node_stone = "default:obsidian",
+		node_riverbed = "default:silver_sand",
+		depth_riverbed = 2,
+		vertical_blend = 1,
+		y_max = -15,
+		y_min = -112,
+		heat_point = 89,
+		humidity_point = 42,
+	})
+		minetest.register_biome({
+		name = "desert_ocean 1",
+		node_top = "default:silver_sand",
+		depth_top = 0,
+		node_dust = "default:silver_sand",
+		node_filler = "default:obsidian",
+		depth_filler = 3,
+		node_stone = "default:obsidian",
+		node_riverbed = "default:silver_sand",
+		depth_riverbed = 2,
+		vertical_blend = 1,
+		y_max = -15,
+		y_min = -112,
+		heat_point = 92,
+		humidity_point = 16,
+	})
+	minetest.register_biome({
+		name = "sandstone_desert_ocean 1",
+		node_top = "default:silver_sand",
+		depth_top = 0,
+		node_dust = "default:silver_sand",
+		node_filler = "default:obsidian",
+		depth_filler = 3,
+		node_stone = "default:obsidian",
+		node_riverbed = "default:silver_sand",
+		depth_riverbed = 2,
+		vertical_blend = 1,
+		y_max = -15,
+		y_min = -112,
+		heat_point = 60,
+		humidity_point = 0,
+	})
+	
+	minetest.register_biome({
+		name = "grassland_ocean 1",
+		node_top = "default:sand",
+		depth_top = 1,
+		node_filler = "default:sand",
+		depth_filler = 3,
+		node_riverbed = "default:sand",
+		depth_riverbed = 2,
+		y_max = -15,
+		y_min = -112,
+		heat_point = 50,
+		humidity_point = 35,
+	})
 
 	-- Underground
 
@@ -1080,4 +1171,48 @@ function register_decorations()
 		flags = "place_center_x, place_center_z",
 	})]]
 end
+
+minetest.register_decoration({
+	name = "driftwood",
+	deco_type = "simple",
+	place_on = {"default:water_source"},
+	sidelen = 16,
+		noise_params = {
+			offset  = -4,
+			scale = 1,
+			spread = {x = 50, y = 50, z = 50},
+			seed = 7013,
+			octaves = 3,
+			persist = 0.7,
+		},
+	--biomes = {"rainforest_swamp", "savanna_shore", "deciduous_forest_shore"},
+	y_max = 25,
+	y_min = 24,
+	decoration = "water:driftwood",
+	param2 = 0,
+	param2_max = 3,
+	--place_offset_y = 1,
+})
+
+	minetest.register_decoration({
+		name = "lava pillars",
+		deco_type = "simple",
+		place_on = {"default:obsidian"},
+		place_offset_y = 3,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 1,
+			spread = {x = 50, y = 50, z = 50},
+			seed = 7013,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = -10,
+		y_min = -50,
+		flags = "force_placement",
+		decoration = {
+			"water:lava_source",
+		},
+})
 register_decorations()
