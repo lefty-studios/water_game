@@ -379,6 +379,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 10,
 		node_stone = "default:stone",
 		node_riverbed = "default:silver_sand",
+		node_water = "default:hot_water_source",
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -15,
@@ -395,6 +396,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		depth_filler = 10,
 		node_stone = "default:stone",
 		node_riverbed = "default:silver_sand",
+		node_water = "default:hot_water_source",
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -15,
@@ -410,6 +412,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_filler = "default:obsidian",
 		depth_filler = 3,
 		node_stone = "default:obsidian",
+		node_water = "default:hot_water_source",
 		node_riverbed = "default:silver_sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
@@ -1070,7 +1073,7 @@ function register_decorations()
 			persist = 0.7,
 		},
 		y_max = 20,
-		y_min = -50,
+		y_min = -15,
 		flags = "force_placement",
 		decoration = {
 			"default:coral_green", "default:coral_pink",
@@ -1097,7 +1100,7 @@ function register_decorations()
 			persist = 0.7,
 		},
 		y_max = 20,
-		y_min = -50,
+		y_min = -15,
 		flags = "force_placement",
 		decoration = {
 			"water:purple_coral", "water:teal_coral",
@@ -1121,7 +1124,7 @@ function register_decorations()
 			persist = 0.7,
 		},
 		y_max = 20,
-		y_min = -50,
+		y_min = -15,
 		flags = "force_placement",
 		decoration = {
 			"water:orange_coral", "water:red_coral",
@@ -1177,11 +1180,11 @@ minetest.register_decoration({
 		deco_type = "simple",
 		place_on = {"default:water_source"},
 		sidelen = 80,
-		fill_ratio = 0.1,
+		fill_ratio =0.001,
 		y_max = 26,
 		y_min = 20,
 		decoration = "water:driftwood",
-	flags = "force_placement",
+	flags = "liquid_surface",
 })
 
 	minetest.register_decoration({
@@ -1194,7 +1197,7 @@ minetest.register_decoration({
 		y_min = -31000,
 		decoration = "water:magma",
 		height = 1, --Optional for if you want the node to be stacked.
-        height_max = 2,
+        height_max = 1,
 		flags = "force_placement",
 	})
 register_decorations()
