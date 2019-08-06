@@ -1,5 +1,5 @@
 local update_interval = 0.5
-local sprint_length = 10
+local sprint_length = 8
 local timer = 0
 
 minetest.register_globalstep(function(dtime)
