@@ -36,13 +36,13 @@ minetest.register_node(":default:water_source", {
 	buildable_to = true,
 	is_ground_content = false,
 	--light_propagates = true,
-	sunlight_propagates = true,
+	--sunlight_propagates = true,
 	drop = "",
 	drowning = 0,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
-	liquid_viscosity = 1,
+	liquid_viscosity = 4.5,
 	post_effect_color = {a = 103, r = 30, g = 76, b = 90},
 	--post_effect_color = {a = 50, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, cools_lava = 1},
@@ -84,17 +84,114 @@ minetest.register_node(":default:water_flowing", {
 	buildable_to = true,
 	is_ground_content = false,
 	--light_propagates = true,
-	sunlight_propagates = true,
+	--sunlight_propagates = true,
 	drop = "",
 	drowning = 0,
 	liquidtype = "flowing",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
-	liquid_viscosity = 0.5,
+	liquid_viscosity = 4.5,
 	post_effect_color = {a = 103, r = 30, g = 76, b = 90},
+	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1,
+		cools_lava = 1},
+	sounds = default.node_sound_water_defaults(),
+})
+
+
+
+minetest.register_node(":default:hot_water_source", {
+	description = "Water Source",
+	drawtype = "liquid",
+	tiles = {
+		{
+			name = "default_water_source_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+		{
+			name = "default_water_source_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+	},
+	alpha = 160,
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	--light_propagates = true,
+	sunlight_propagates = true,
+	drop = "",
+	drowning = 0,
+	liquidtype = "source",
+	liquid_alternative_flowing = "default:hot_water_flowing",
+	liquid_alternative_source = "default:hot_water_source",
+	liquid_viscosity = 1,
+	damage_per_second = 4 * 2,
+	post_effect_color = {a = 103, r = 100, g = 100, b = 100},
+	groups = {water = 3, liquid = 3, cools_lava = 1},
+	sounds = default.node_sound_water_defaults(),
+})
+
+minetest.register_node(":default:hot_water_flowing", {
+	description = "Flowing Water",
+	drawtype = "flowingliquid",
+	tiles = {"default_water.png"},
+	special_tiles = {
+		{
+			name = "default_water_flowing_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.8,
+			},
+		},
+		{
+			name = "default_water_flowing_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.8,
+			},
+		},
+	},
+	alpha = 160,
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	--light_propagates = true,
+	sunlight_propagates = true,
+	drop = "",
+	drowning = 0,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "default:hot_water_flowing",
+	liquid_alternative_source = "default:hot_water_source",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 100, g = 100, b = 100},
 	--post_effect_color = {a = 50, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1,
 		cools_lava = 1},
+	damage_per_second = 4 * 2,
 	sounds = default.node_sound_water_defaults(),
 })
 
@@ -294,29 +391,6 @@ minetest.register_node("water:chest_air", {
     groups = {not_in_creative_inventory=1}
 })
 
-minetest.register_node("water:lava_air", {
-	description = "Hacker",
-    drawtype = "airlike",
-    paramtype = "light",
-    sunlight_propagates = true,
-
-    walkable     = false, -- Would make the player collide with the air node
-    pointable    = false, -- You can't select the node
-    diggable     = false, -- You can't dig the node
-    buildable_to = true,  -- Nodes can be replace this node.
-                          -- (you can place a node and remove the air node
-                          -- that used to be there)
-    drop = "",
-    groups = {not_in_creative_inventory=1}
-})
-minetest.register_abm({
-    nodenames = {"water:lava_air"},
-    interval = 1,
-    chance = 1,
-    action = function(pos, node)
-		minetest.set_node(pos, {name = "water:lava_source"})
-    end,
-})
 --
 -- Stone
 --
@@ -427,7 +501,6 @@ minetest.register_node("water:driftwood", {
 	liquids_pointable = true,
 	walkable = false,
 	buildable_to = true,
-	floodable = true,
 	groups = {snappy = 3, flammable = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	node_placement_prediction = "",
@@ -439,33 +512,5 @@ minetest.register_node("water:driftwood", {
 		type = "fixed",
 		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16}
 	},
-
-	on_place = function(itemstack, placer, pointed_thing)
-		local pos = pointed_thing.above
-		local node = minetest.get_node(pointed_thing.under)
-		local def = minetest.registered_nodes[node.name]
-		local player_name = placer and placer:get_player_name() or ""
-
-		if def and def.on_rightclick then
-			return def.on_rightclick(pointed_thing.under, node, placer, itemstack,
-					pointed_thing)
-		end
-
-		if def and def.liquidtype == "source" and
-				minetest.get_item_group(node.name, "water") > 0 then
-			if not minetest.is_protected(pos, player_name) then
-				minetest.set_node(pos, {name = "water:driftwood",
-					param2 = math.random(0, 3)})
-				if not (creative and creative.is_enabled_for
-						and creative.is_enabled_for(player_name)) then
-					itemstack:take_item()
-				end
-			else
-				minetest.chat_send_player(player_name, "Node is protected")
-				minetest.record_protection_violation(pos, player_name)
-			end
-		end
-
-		return itemstack
-	end
+	drop = 'default:stick 2',
 })
