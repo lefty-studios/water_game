@@ -57,6 +57,8 @@ armor = {
 	fire_nodes = {
 		{"default:lava_source",     5, 8},
 		{"default:lava_flowing",    5, 8},
+		{"default:hot_water_flowing",    5, 8},
+		{"default:hot_water_source",    5, 8},
 		{"fire:basic_flame",        3, 4},
 		{"fire:permanent_flame",    3, 4},
 		{"ethereal:crystal_spike",  2, 1},

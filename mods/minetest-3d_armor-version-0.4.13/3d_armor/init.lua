@@ -39,8 +39,10 @@ if minetest.global_exists("ARMOR_MATERIALS") then
 	armor.materials = table.copy(ARMOR_MATERIALS)
 end
 if minetest.global_exists("ARMOR_FIRE_NODES") then
-	armor.fire_nodes = table.copy(ARMOR_FIRE_NODES)
+    armor.fire_nodes = table.copy(ARMOR_FIRE_NODES)
 end
+
+
 
 -- Load Configuration
 
