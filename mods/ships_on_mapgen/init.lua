@@ -45,7 +45,7 @@ end
 
 minetest.register_on_generated(function(minp, maxp, seed)
 	-- no point in placing boats on mountains or deep below sealevel
-	if( minp.y < -64 or minp.y > 0) then
+	if( minp.y < -25 or minp.y > 0) then
 		return;
 	end
 
