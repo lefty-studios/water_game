@@ -2,6 +2,14 @@ local path = minetest.get_modpath(minetest.get_current_modname())
 dofile(path .. "/mapgen.lua")
 dofile(path .. "/tools.lua")
 dofile(path .. "/ores.lua")
+dofile(path .. "/recipes.lua")
+local storage = minetest.get_mod_storage()
+if storage:get_string("hasPlayerJoined") then
+	
+else
+	storage:set_string("hasPlayerJoined", "false")
+end
+local input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
 
 minetest.register_node(":default:water_source", {
 	description = "Water Source",
@@ -514,3 +522,60 @@ minetest.register_node("water:driftwood", {
 	},
 	drop = 'default:stick 2',
 })
+
+minetest.register_node("water:coral_reef_biome_sand", {
+	description = "Sand",
+	tiles = {"default_sand.png"},
+	groups = {crumbly = 3, falling_node = 1, sand = 1, biome_sand = 1},
+	drop = "default:sand",
+	sounds = default.node_sound_sand_defaults(),
+})
+minetest.register_node("water:kelp_biome_sand", {
+	description = "Sand",
+	tiles = {"default_sand.png"},
+	groups = {crumbly = 3, falling_node = 1, sand = 1, biome_sand = 1},
+	drop = "default:sand",
+	sounds = default.node_sound_sand_defaults(),
+})
+minetest.register_node("water:coral_biome_sand", {
+	description = "Sand",
+	tiles = {"default_sand.png"},
+	groups = {crumbly = 3, falling_node = 1, sand = 1, biome_sand = 1},
+	drop = "default:sand",
+	sounds = default.node_sound_sand_defaults(),
+})
+minetest.register_node(":crafting:work_bench", {
+	description = "Crafter",
+	tiles = {"water_crafter_top.png", "water_crafter_top.png", "default_steel_block.png"},
+	groups = { snappy = 1 },
+	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
+})
+
+minetest.register_on_joinplayer(function(player)
+	if not input then
+		minetest.chat_send_all("Player joined for first time, placing base ")
+		local output = io.open(minetest.get_worldpath().."/hasPlayerJoined","w")
+		output:write("true")
+		io.close(output)
+		input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
+		minetest.place_schematic(player:get_pos(), minetest.get_modpath("water") .. "/schematics/ship.mts", 180, nil, false)
+		io.close(input)
+	else
+		minetest.chat_send_all("Player has already joined for first time ")
+	end
+end)
+
+--[[
+local queue = {}
+minetest.register_on_newplayer(function(player)
+    queue[player:get_player_name()] = 1
+end)
+minetest.register_on_joinplayer(function(player)
+    local name = player:get_player_name()
+	if queue[name] then
+		minetest.chat_send_all("Player joined for first time, placing base")
+		minetest.place_schematic(player:get_pos(), minetest.get_modpath("water") .. "/schematics/ship.mts", 180, nil, false)
+		
+        queue[name] = 1
+    end
+end)]]

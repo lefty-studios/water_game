@@ -65,7 +65,7 @@ minetest.register_ore({
 minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "water:sea_stone",
-		wherein         = {"default:sand"},
+		wherein         = {"default:sand","group:biome_sand"},
 		clust_scarcity  = 32 * 32 * 32,
 		clust_size      = 8,
 		y_min           = -15,
