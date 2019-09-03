@@ -1,15 +1,9 @@
 local path = minetest.get_modpath(minetest.get_current_modname())
+
 dofile(path .. "/mapgen.lua")
 dofile(path .. "/tools.lua")
 dofile(path .. "/ores.lua")
 dofile(path .. "/recipes.lua")
-local storage = minetest.get_mod_storage()
-if storage:get_string("hasPlayerJoined") then
-	
-else
-	storage:set_string("hasPlayerJoined", "false")
-end
-local input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
 
 minetest.register_node(":default:water_source", {
 	description = "Water Source",
@@ -383,22 +377,6 @@ register_coral("brown","Brown")
 minetest.register_alias_force("default:coral_orange", "water:orange_coral")
 minetest.register_alias_force("default:coral_brown", "water:brown_coral")
 
-minetest.register_node("water:chest_air", {
-	description = "Hacker",
-    drawtype = "airlike",
-    paramtype = "light",
-    sunlight_propagates = true,
-
-    walkable     = false, -- Would make the player collide with the air node
-    pointable    = false, -- You can't select the node
-    diggable     = false, -- You can't dig the node
-    buildable_to = true,  -- Nodes can be replace this node.
-                          -- (you can place a node and remove the air node
-                          -- that used to be there)
-    drop = "",
-    groups = {not_in_creative_inventory=1}
-})
-
 --
 -- Stone
 --
@@ -427,14 +405,14 @@ minetest.register_node("water:sea_stonebrick", {
 	groups = {cracky = 2, stone = 1},
 	sounds = default.node_sound_stone_defaults(),
 })
---[[
+
 minetest.register_node("water:sea_stone_block", {
 	description = "Sea Stone Block",
 	tiles = {"default_stone_block.png^[colorize:#008b82:100"},
 	is_ground_content = false,
 	groups = {cracky = 2, stone = 1},
 	sounds = default.node_sound_stone_defaults(),
-})]]
+})
 
 minetest.register_node("water:magma", {
 	description = "Magma",
@@ -475,28 +453,6 @@ minetest.register_abm({
     end,
 })
 
-minetest.register_craft({
-	output = 'water:sea_stonebrick 4',
-	recipe = {
-		{'water:sea_stone', 'water:sea_stone'},
-		{'water:sea_stone', 'water:sea_stone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'water:sea_stone_block 9',
-	recipe = {
-		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
-		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
-		{'water:sea_stone', 'water:sea_stone', 'water:sea_stone'},
-	}
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "water:sea_stone",
-	recipe = "water:sea_cobble",
-})
 
 minetest.register_node("water:driftwood", {
 	description = "Driftwood",
@@ -551,20 +507,36 @@ minetest.register_node(":crafting:work_bench", {
 	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
 })
 
-minetest.register_on_joinplayer(function(player)
-	if not input then
-		minetest.chat_send_all("Player joined for first time, placing base ")
-		local output = io.open(minetest.get_worldpath().."/hasPlayerJoined","w")
-		output:write("true")
-		io.close(output)
-		input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
-		minetest.place_schematic(player:get_pos(), minetest.get_modpath("water") .. "/schematics/ship.mts", 180, nil, false)
-		io.close(input)
-	else
-		minetest.chat_send_all("Player has already joined for first time ")
-	end
-end)
-
+local inputTwo = io.open(minetest.get_worldpath().."/hasLadderExtended","r")
+--[[
+minetest.register_abm({
+	nodenames = {"default:ladder_steel"},
+	interval = 2,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		if not inputTwo then
+				local pos_below = {x=pos.x, y=pos.y-1, z=pos.z}
+				local node_below = minetest.get_node(pos_below)
+				if not node_below.name == "air" and not inputTwo then
+					local output = io.open(minetest.get_worldpath().."/hasLadderExtended","w")
+					output:write("true")
+					io.close(output)
+					
+				elseif node_below.name == "air" and not inputTwo then
+					minetest.add_node(pos_below, {name="default:ladder_steel", param2 = node.param2})
+					minetest.chat_send_all("Extending ladder")
+				--minetest.chat_send_all("Player has already joined for first time ")
+				elseif  node_below.name == "default:desert_stone" and not inputTwo then
+					local output = io.open(minetest.get_worldpath().."/hasLadderExtended","w")
+					output:write("true")
+					io.close(output)
+					minetest.chat_send_all("Extending ladder")
+					minetest.add_node(pos_below, {name="default:ladder_steel", param2 = node.param2})
+				end
+		end
+	end,
+})
+]]--
 --[[
 local queue = {}
 minetest.register_on_newplayer(function(player)
