@@ -63,9 +63,6 @@ armor = {
 		{"fire:permanent_flame",    3, 4},
 		{"ethereal:crystal_spike",  2, 1},
 		{"ethereal:fire_flower",    2, 1},
-		{"default:torch",           1, 1},
-		{"default:torch_ceiling",   1, 1},
-		{"default:torch_wall",      1, 1},
 	},
 	registered_groups = {["fleshy"]=100},
 	registered_callbacks = {
@@ -97,7 +94,7 @@ armor.config = {
 	material_mithril = true,
 	material_crystal = true,
 	water_protect = true,
-	fire_protect = minetest.get_modpath("ethereal") ~= nil,
+	fire_protect = true,
 	punch_damage = true,
 }
 

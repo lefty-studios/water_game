@@ -243,7 +243,7 @@ mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
 mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)
-mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 1000, 1000, 12, -31000, 20)
+mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 100, 100, 12, -31000, 20)
 
 
 
@@ -301,8 +301,8 @@ if minetest.get_modpath("3d_armor") then
 
 --Armors
 		local stats = {
-			croco = {name="Crocodile", armor=3, heal=0, use=450},
-			bloco = {name="Bloco", armor=5, heal=0, use=700},
+			croco = {name="Crocodile", armor=3, heal=0, use=450, fire = 0},
+			bloco = {name="Bloco", armor=5, heal=0, use=700, fire = 15},
 		}
 		local materials = {
 			croco="mobs_nssm:crocodile_skin",
@@ -313,25 +313,25 @@ if minetest.get_modpath("3d_armor") then
 			minetest.register_tool("mobs_nssm:helmet_"..k, {
 				description = v.name.." Helmet",
 				inventory_image ="inv_helmet_"..k..".png",
-				groups = {armor_head=math.floor(4*v.armor), armor_heal=v.heal, armor_use=v.use},
+				groups = {armor_head=math.floor(4*v.armor), armor_heal=v.heal, armor_use=v.use, armor_fire=v.fire},
 				wear = 0,
 			})
 			minetest.register_tool("mobs_nssm:chestplate_"..k, {
 				description = v.name.." Chestplate",
 				inventory_image ="inv_chestplate_"..k..".png",
-				groups = {armor_torso=math.floor(6*v.armor), armor_heal=v.heal, armor_use=v.use},
+				groups = {armor_torso=math.floor(6*v.armor), armor_heal=v.heal, armor_use=v.use, armor_fire=v.fire},
 				wear = 0,
 			})
 			minetest.register_tool("mobs_nssm:leggings_"..k, {
 				description = v.name.." Leggings",
 				inventory_image = "inv_leggings_"..k..".png",
-				groups = {armor_legs=math.floor(5*v.armor), armor_heal=v.heal, armor_use=v.use},
+				groups = {armor_legs=math.floor(5*v.armor), armor_heal=v.heal, armor_use=v.use, armor_fire=v.fire},
 				wear = 0,
 			})
 			minetest.register_tool("mobs_nssm:boots_"..k, {
 				description = v.name.." Boots",
 				inventory_image ="inv_boots_"..k..".png",
-				groups = {armor_feet=math.floor(3*v.armor), armor_heal=v.heal, armor_use=v.use},
+				groups = {armor_feet=math.floor(3*v.armor), armor_heal=v.heal, armor_use=v.use, armor_fire=v.fire},
 				wear = 0,
 			})
 		end
