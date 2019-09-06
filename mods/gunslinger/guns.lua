@@ -1,4 +1,4 @@
-gunslinger.register_gun("gunslinger:cheetah", {
+--[[gunslinger.register_gun("gunslinger:cheetah", {
 	itemdef = {
 		description = "Cheetah (Assault Rifle)",
 		inventory_image = "gunslinger_cheetah.png",
@@ -13,7 +13,7 @@ gunslinger.register_gun("gunslinger:cheetah", {
 	clip_size = 100,
 	range = 80
 })
-
+]]
 gunslinger.register_type("phaser", {
 	mode = "semi-automatic",
 	dmg_mult = 2,
