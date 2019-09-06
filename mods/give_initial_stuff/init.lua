@@ -1,4 +1,4 @@
-local stuff_string = "spears:spear_coral"
+local stuff_string = "gunslinger:phaser"
 
 give_initial_stuff = {
 	items = {}

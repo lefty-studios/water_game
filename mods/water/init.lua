@@ -507,7 +507,7 @@ minetest.register_node(":crafting:work_bench", {
 	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
 })
 
-local inputTwo = io.open(minetest.get_worldpath().."/hasLadderExtended","r")
+--local inputTwo = io.open(minetest.get_worldpath().."/hasLadderExtended","r")
 --[[
 minetest.register_abm({
 	nodenames = {"default:ladder_steel"},
