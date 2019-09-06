@@ -234,7 +234,7 @@ local function fire(stack, player)
 				local pos2 = minetest.get_pointed_thing_position(pointed)
 				local nodeTarget = minetest.get_node(pos2)
 				if nodeTarget.name ~= "ignore" then
-					minetest.chat_send_all(minetest.get_node(pos2).name)
+					--minetest.chat_send_all(minetest.get_node(pos2).name)
 					minetest.node_dig(pos2, nodeTarget, player)
 				end	
 			end
