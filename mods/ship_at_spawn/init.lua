@@ -14,7 +14,7 @@ minetest.register_node(":water:chest_air", {
     groups = {not_in_creative_inventory=1}
 })
 
-
+math.randomseed(os.time())
 minetest.register_abm({
 	nodenames = {"water:chest_air"},
 	interval = 1,
@@ -23,8 +23,9 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="default:chest", param2 = minetest.dir_to_facedir({x=0,y=0,z=-1})})
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
-		inv:add_item("main", "beds:bed_simple")
-		inv:add_item("main", "default:apple 10")
+		inv:add_item("main", "phaser:battery "..math.random(1, 3))
+		inv:add_item("main", "gunslinger:phaser")
+		inv:add_item("main", "3d_armor:helmet_scuba")
 	end,
 })
 
