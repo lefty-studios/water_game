@@ -420,17 +420,8 @@ function gunslinger.register_gun(name, def)
 	gunslinger.__guns[name] = def
 
 	def.itemdef.on_use = on_lclick
-	def.itemdef.on_secondary_use = on_rclick
-	def.itemdef.on_place = function(stack, player, pointed)
-		if pointed.type == "node" then
-			local node = minetest.get_node_or_nil(pointed.under)
-			local nodedef = minetest.registered_items[node.name]
-			return nodedef.on_rightclick or on_rclick(stack, player)
-		elseif pointed.type == "object" then
-			local entity = pointed.ref:get_luaentity()
-			return entity:on_rightclick(player) or on_rclick(stack, player)
-		end
-	end
+	def.itemdef.on_secondary_use = nil
+	def.itemdef.on_place = nil
 
 	-- Register tool
 	minetest.register_tool(name, def.itemdef)
