@@ -24,11 +24,11 @@ minetest.register_decoration({
 	name = "water:buried_pod",
 	deco_type = "schematic",
 	place_on = {"group:biome_sand","default:sand"},
-	place_offset_y = -1,
+	place_offset_y = -3,
 	sidelen = 1,
 	noise_params = {
-		offset = 0.00001,
-		scale = 0.00001,
+		offset = 0,
+		scale = 0.0000001,
 		spread = {x = 100000, y = 100000, z = 100000},
 		seed = 123456, --why not
 		octaves = 20,
