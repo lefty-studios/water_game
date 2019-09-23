@@ -39,7 +39,7 @@ minetest.register_on_joinplayer(function(player)
 		output:write("true")
 		io.close(output)
 		input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
-		local pos_below = {x=player:get_pos().x-2, y=player:get_pos().y-2, z=player:get_pos().z-4}
+		local pos_below = {x=player:get_pos().x-2, y=player:get_pos().y-1, z=player:get_pos().z-4}
 		minetest.place_schematic(pos_below, minetest.get_modpath("ship_at_spawn") .. "/schematics/pod.mts", 360, {["default:chest"] = "water:chest_air"}, true)
 		io.close(input)
 	else
