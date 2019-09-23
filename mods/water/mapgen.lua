@@ -364,7 +364,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_filler = "water:sea_stone",
 		depth_filler = 10,
 		node_stone = "default:stone",
-		node_riverbed = "default:sand",
+		node_riverbed = "water:sea_stone",
 		depth_riverbed = 2,
 		y_max = -15,
 		y_min = -112,
@@ -379,7 +379,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		node_filler = "water:sea_stone",
 		depth_filler = 10,
 		node_stone = "default:stone",
-		node_riverbed = "default:sand",
+		node_riverbed = "water:sea_stone",
 		depth_riverbed = 2,
 		y_max = -15,
 		y_min = -112,
@@ -389,20 +389,20 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 
 	minetest.register_biome({
 		name = "rainforest_ocean 1",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		node_riverbed = "default:sand",
+		node_top = "water:sea_stone",
+		depth_top = 0,
+		node_filler = "water:sea_stone",
+		depth_filler = 10,
+		node_stone = "default:stone",
+		node_riverbed = "water:sea_stone",
 		depth_riverbed = 2,
-		vertical_blend = 1,
-		y_max = -25,
+		y_max = -15,
 		y_min = -112,
 		heat_point = 86,
 		humidity_point = 65,
 	})
 	minetest.register_biome({
-		name = "Savanna ocean 2",
+		name = "Magma biome",
 		node_top = "default:silver_sand",
 		depth_top = 0,
 		node_dust = "default:silver_sand",
@@ -419,7 +419,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		humidity_point = 42,
 	})
 		minetest.register_biome({
-		name = "desert_ocean 1",
+		name = "Magma biome 1",
 		node_top = "default:silver_sand",
 		depth_top = 0,
 		node_dust = "default:silver_sand",
@@ -436,7 +436,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		humidity_point = 16,
 	})
 	minetest.register_biome({
-		name = "sandstone_desert_ocean 1",
+		name = "Magma biome 2",
 		node_top = "default:silver_sand",
 		depth_top = 0,
 		node_dust = "default:silver_sand",
@@ -455,11 +455,12 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 	
 	minetest.register_biome({
 		name = "grassland_ocean 1",
-		node_top = "default:sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		depth_filler = 3,
-		node_riverbed = "default:sand",
+		node_top = "water:sea_stone",
+		depth_top = 0,
+		node_filler = "water:sea_stone",
+		depth_filler = 10,
+		node_stone = "default:stone",
+		node_riverbed = "water:sea_stone",
 		depth_riverbed = 2,
 		y_max = -15,
 		y_min = -112,
