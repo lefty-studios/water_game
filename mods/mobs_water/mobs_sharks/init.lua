@@ -46,7 +46,7 @@ if mobs.mod and mobs.mod == "redo" then
 			attack_monsters = true,
 			--attack_players =false,
 			specific_attack = {"boats:boat","player", "mobs_nssm:crab","mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:kraken","mobs_m:whale","mobs_crocs:crocodile_swim"},
-			damage = 10,
+			damage = 8,
 			reach = 3,
 			hp_min = 20,
 			hp_max = 25,
@@ -85,7 +85,7 @@ if mobs.mod and mobs.mod == "redo" then
 			end
 		})
 		--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-		mobs:spawn_specific("mobs_sharks:shark_lg", l_spawn_in, l_spawn_near, -1, 20, 30, l_spawn_chance, 1, -31000, 25)
+		mobs:spawn_specific("mobs_sharks:shark_lg", l_spawn_in, l_spawn_near, -1, 20, 90, l_spawn_chance, 1, -31000, 20)
 		mobs:register_egg("mobs_sharks:shark_lg", "Shark (large)", l_egg_texture, 0)
 	end
 
@@ -97,7 +97,7 @@ if mobs.mod and mobs.mod == "redo" then
 			attack_animals = true,
 			attack_monsters = true,
 			specific_attack = {"player", "mobs_fish:tropical","mobs_nssm:crab","mobs_nssm:octopus","mobs_nssm:kraken","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim"},
-			damage = 8,
+			damage = 6,
 			reach = 2,
 			hp_min = 15,
 			hp_max = 20,
@@ -121,7 +121,7 @@ if mobs.mod and mobs.mod == "redo" then
 			animation = l_anims
 		})
 		--name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-		mobs:spawn_specific("mobs_sharks:shark_md", l_spawn_in, l_spawn_near, -1, 20, 30, l_spawn_chance, 1, -31000, 25)
+		mobs:spawn_specific("mobs_sharks:shark_md", l_spawn_in, l_spawn_near, -1, 20, 60, l_spawn_chance, 1, -31000, 25)
 		mobs:register_egg("mobs_sharks:shark_md", "Shark (medium)", l_egg_texture, 0)
 	end
 
@@ -130,7 +130,7 @@ if mobs.mod and mobs.mod == "redo" then
 		mobs:register_mob("mobs_sharks:shark_sm", {
 			type = "monster",
 			attack_type = "dogfight",
-			damage = 6,
+			damage = 4,
 			reach = 1,
 			attack_monsters = true,
 			specific_attack = {"player", "mobs_fish:tropical","mobs_nssm:crab","mobs_nssm:octopus","mobs_nssm:kraken","mobs_crocs:crocodile_swim"},
