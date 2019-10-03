@@ -7,10 +7,11 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 minetest.set_mapgen_setting("mg_name", "flat", true)
 minetest.set_mapgen_setting("mg_flags", "nocaves, nodungeons, light, decorations, biomes", true)
 minetest.set_mapgen_setting("mgflat_spflags", "hills, lakes", true)
-minetest.set_mapgen_setting("mgflat_hill_threshhold", "0.9", true)
+minetest.set_mapgen_setting("mgflat_hill_threshhold", "0.8", true)
+minetest.set_mapgen_setting("mgflat_hill_steepness", "50", true)
 minetest.set_mapgen_setting("mgflat_lake_threshhold", "0.1", true)
-minetest.set_mapgen_setting("mgflat_lake_steepness", "177", true)
-minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 50, 70), 7244, 5, 0.6, 1.7, eased", true)
+minetest.set_mapgen_setting("mgflat_lake_steepness", "188", true)
+minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 250, 250), 7244, 5, 0.6, 2, eased", true)
 
 --Biomes
 	-- Grassland
@@ -25,7 +26,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -41,7 +42,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = 21,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -75,7 +76,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 26,
+		y_min = 25,
 		heat_point = 45,
 		humidity_point = 70,
 	})
@@ -91,7 +92,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = 26,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 45,
 		humidity_point = 70,
 	})
@@ -136,7 +137,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 60,
 		humidity_point = 68,
 	})
@@ -280,7 +281,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 89,
 		humidity_point = 42,
 	})
@@ -343,7 +344,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 5
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
 		y_max = 25,
-		y_min = 20,
+		y_min = 25,
 		heat_point = 86,
 		humidity_point = 65,
 	})
@@ -1211,7 +1212,7 @@ minetest.register_decoration({
 		sidelen = 80,
 		fill_ratio =0.001,
 		y_max = 26,
-		y_min = 20,
+		y_min = 25,
 		decoration = "water:driftwood",
 	flags = "liquid_surface",
 })
