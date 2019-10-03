@@ -4,6 +4,14 @@ minetest.clear_registered_decorations()
 minetest.clear_registered_biomes()
 local WATER_LEVEL = minetest.setting_get("water_level")
 
+minetest.set_mapgen_setting("mg_name", "flat", true)
+minetest.set_mapgen_setting("mg_flags", "nocaves, nodungeons, light, decorations, biomes", true)
+minetest.set_mapgen_setting("mgflat_spflags", "hills, lakes", true)
+minetest.set_mapgen_setting("mgflat_hill_threshhold", "0.9", true)
+minetest.set_mapgen_setting("mgflat_lake_threshhold", "0.1", true)
+minetest.set_mapgen_setting("mgflat_lake_steepness", "177", true)
+minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (70, 50, 70), 7244, 5, 0.6, 1.7, eased", true)
+
 --Biomes
 	-- Grassland
 
@@ -102,7 +110,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 57.5,
 		humidity_point = 70,
 	})
-	
+
 	minetest.register_biome({
 		name = "kelp_forest",
 		node_top = "water:kelp_biome_sand",
@@ -356,7 +364,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 86,
 		humidity_point = 65,
 	})
-	
+
 	minetest.register_biome({
 		name = "ore biome",
 		node_top = "water:sea_stone",
@@ -371,7 +379,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 45,
 		humidity_point = 70,
 	})
-		
+
 	minetest.register_biome({
 		name = "ore biome 1",
 		node_top = "water:sea_stone",
@@ -452,7 +460,7 @@ local WATER_LEVEL = minetest.setting_get("water_level")
 		heat_point = 60,
 		humidity_point = 0,
 	})
-	
+
 	minetest.register_biome({
 		name = "grassland_ocean 1",
 		node_top = "default:sand",
@@ -615,7 +623,7 @@ function register_decorations()
 	-- Due to 32 node height, altitude is limited and prescence depends on chunksize
 
 	-- Jungle tree and log
---[[ 
+--[[
 	minetest.register_decoration({
 		name = "default:jungle_tree",
 		deco_type = "schematic",
@@ -648,7 +656,7 @@ function register_decorations()
 	})
 
 	-- Taiga and temperate coniferous forest pine tree, small pine tree and log
---[[ 
+--[[
 	minetest.register_decoration({
 		name = "default:pine_tree",
 		deco_type = "schematic",
@@ -1063,8 +1071,8 @@ function register_decorations()
 			"default:coral_green", "default:coral_pink",
 			"default:coral_cyan", "default:coral_brown",
 			"default:coral_orange", "default:coral_skeleton",
-			"water:coral_glow","water:purple_coral", 
-			"water:teal_coral","water:coral_glow", 
+			"water:coral_glow","water:purple_coral",
+			"water:teal_coral","water:coral_glow",
 			"water:red_coral",
 		},
 	})
@@ -1089,8 +1097,8 @@ function register_decorations()
 			"default:coral_green", "default:coral_pink",
 			"default:coral_cyan", "default:coral_brown",
 			"default:coral_orange", "default:coral_skeleton",
-			"water:coral_glow","water:purple_coral", 
-			"water:teal_coral","water:coral_glow", 
+			"water:coral_glow","water:purple_coral",
+			"water:teal_coral","water:coral_glow",
 			"water:red_coral",
 		},
 	})
