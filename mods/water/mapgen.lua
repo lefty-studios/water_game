@@ -397,6 +397,21 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 	})
 
 	minetest.register_biome({
+		name = "grassland_ocean 1",
+		node_top = "water:sea_stone",
+		depth_top = 0,
+		node_filler = "water:sea_stone",
+		depth_filler = 10,
+		node_stone = "default:stone",
+		node_riverbed = "water:sea_stone",
+		depth_riverbed = 2,
+		y_max = -15,
+		y_min = -69, 
+		heat_point = 50,
+		humidity_point = 35,
+	})
+
+	minetest.register_biome({
 		name = "rainforest_ocean 1",
 		node_top = "water:sea_stone",
 		depth_top = 0,
@@ -423,7 +438,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -69,
-		y_min = -112,
+		y_min = -119,
 		heat_point = 89,
 		humidity_point = 42,
 	})
@@ -440,7 +455,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -69,
-		y_min = -112,
+		y_min = -119,
 		heat_point = 92,
 		humidity_point = 16,
 	})
@@ -457,31 +472,17 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -69,
-		y_min = -112,
+		y_min = -119,
 		heat_point = 60,
 		humidity_point = 0,
 	})
 
-	minetest.register_biome({
-		name = "grassland_ocean 1",
-		node_top = "water:sea_stone",
-		depth_top = 0,
-		node_filler = "water:sea_stone",
-		depth_filler = 10,
-		node_stone = "default:stone",
-		node_riverbed = "water:sea_stone",
-		depth_riverbed = 2,
-		y_max = -15,
-		y_min = -112,
-		heat_point = 50,
-		humidity_point = 35,
-	})
 
 	-- Underground
 
 	minetest.register_biome({
 		name = "underground",
-		y_max = -113,
+		y_max = -200,
 		y_min = -31000,
 		heat_point = 50,
 		humidity_point = 50,
