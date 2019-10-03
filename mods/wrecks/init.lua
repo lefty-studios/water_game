@@ -12,8 +12,8 @@ minetest.register_decoration({
 		octaves = 20,
 		persist = 0.7
 	},
-	y_max = 20,
-	y_min = -15,
+	y_max = 8,
+	y_min = 8,
 	flags = "force_placement",
 	schematic = minetest.get_modpath(minetest.get_current_modname()) .. "/schematics/wing_one.mts",
 	param2 = 48,
@@ -28,14 +28,14 @@ minetest.register_decoration({
 	sidelen = 1,
 	noise_params = {
 		offset = 0,
-		scale = 0.0000001,
+		scale = 0.0001,
 		spread = {x = 100000, y = 100000, z = 100000},
 		seed = 123456, --why not
 		octaves = 20,
 		persist = 0.7
 	},
-	y_max = 20,
-	y_min = -15,
+	y_max = 8,
+	y_min = 8,
 	flags = "force_placement",
 	schematic = minetest.get_modpath(minetest.get_current_modname()) .. "/schematics/buried_pod.mts",
 	param2 = 48,
