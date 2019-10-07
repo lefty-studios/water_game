@@ -25,6 +25,7 @@ minetest.register_node("water:sea_stone_with_mese", {
 	groups = {cracky = 1},
 	drop = "default:mese_crystal",
 	sounds = default.node_sound_stone_defaults(),
+	light_source = 5,
 })
 minetest.register_node("water:sea_stone_with_gold", {
 	description = "Gold Ore",
@@ -37,7 +38,7 @@ minetest.register_node("water:sea_stone_with_diamond", {
 	description = "Diamond Ore",
 	tiles = {"(default_stone.png^[colorize:#008b82:100)^default_mineral_diamond.png"},
 	groups = {cracky = 2},
-	drop = "default:diamond_lump",
+	drop = "default:diamond",
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -65,7 +66,7 @@ minetest.register_ore({
 minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "water:sea_stone",
-		wherein         = {"default:sand","group:biome_sand"},
+		wherein         = {"default:sand","water:coral_reef_biome_sand","water:kelp_biome_sand","water:coral_biome_sand"},
 		clust_scarcity  = 32 * 32 * 32,
 		clust_size      = 8,
 		y_min           = -15,
