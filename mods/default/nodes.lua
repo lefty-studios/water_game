@@ -1918,7 +1918,7 @@ minetest.register_node("default:sand_with_kelp", {
 	special_tiles = {{name = "default_kelp.png", tileable_vertical = true}},
 	inventory_image = "default_kelp.png",
 	paramtype = "light",
-	light_source = 5,
+	--light_source = 5,
 	paramtype2 = "leveled",
 	groups = {snappy = 3},
 	selection_box = {
