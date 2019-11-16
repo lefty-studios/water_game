@@ -654,7 +654,7 @@ minetest.register_node("scifi_nodes:whtlightbnd", {
 --extra stuff
 local xpane = minetest.get_modnames()
 if xpane == xpane then
-dofile(minetest.get_modpath("scifi_nodes").."/panes.lua")
+--dofile(minetest.get_modpath("scifi_nodes").."/panes.lua")
 end
 dofile(minetest.get_modpath("scifi_nodes").."/doors.lua")
 dofile(minetest.get_modpath("scifi_nodes").."/nodeboxes.lua")
