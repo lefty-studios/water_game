@@ -98,22 +98,8 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 	})
 
 	minetest.register_biome({
-		name = "kelp_forest",
-		node_top = "water:coral_reef_biome_sand",
-		depth_top = 1,
-		node_filler = "default:sand",
-		node_stone = "default:desert_sandstone",
-		depth_filler = 3,
-		node_riverbed = "default:sand",
-		depth_riverbed = 2,
-		y_max = 20,
-		y_min = -15,
-		heat_point = 57.5,
-		humidity_point = 70,
-	})
-
-	minetest.register_biome({
-		name = "kelp_forest",
+		name = "kelp_forest", --14122497862344701939 168.8, 34, -282.2
+	--	node_water = "water:kelp_water_source",
 		node_top = "water:kelp_biome_sand",
 		depth_top = 1,
 		node_filler = "default:sand",
@@ -122,10 +108,10 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_riverbed = 2,
 		y_max = 20,
 		y_min = -15,
-		heat_point = 45,
-		humidity_point = 57.5,
+		heat_point = 60,
+		humidity_point = 68,
 	})
-	-- Deciduous forest
+	-- Deciduous forest 
 
 	minetest.register_biome({
 		name = "deciduous_forest",
@@ -146,7 +132,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "deciduous_forest_shore",
 		node_top = "default:dirt",
 		depth_top = 1,
-		node_filler = "default:dirt",
+		--node_filler = "default:dirt",
 		node_stone = "default:desert_sandstone",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
@@ -161,6 +147,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "corals_1",
 		node_top = "water:coral_reef_biome_sand",
 		node_stone = "default:desert_sandstone",
+		node_water = "default:water_source",
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
@@ -169,8 +156,8 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		vertical_blend = 1,
 		y_max = 19,
 		y_min = -15,
-		heat_point = 60,
-		humidity_point = 68,
+		heat_point = 45,
+		humidity_point = 70,
 	})
 
 	-- Desert
@@ -196,6 +183,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
+		node_water = "default:water_source",
 		node_stone = "default:desert_stone",
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
@@ -229,6 +217,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
+		node_water = "default:water_source",
 		node_stone = "default:sandstone",
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
@@ -244,8 +233,8 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "cold_desert",
 		node_top = "default:silver_sand",
 		depth_top = 1,
-		node_filler = "default:silver_sand",
-		depth_filler = 1,
+		--node_filler = "default:silver_sand",
+		--depth_filler = 1,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
@@ -258,9 +247,10 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "dead_ocean", --name = "cold_desert_ocean",
 		node_top = "default:silver_sand",
 		depth_top = 1,
-		node_filler = "default:silver_sand",
-		depth_filler = 3,
+		--node_filler = "default:silver_sand",
+		--depth_filler = 3,
 		node_riverbed = "default:silver_sand",
+		node_water = "default:water_source",
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = 25,
@@ -290,7 +280,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "savanna_shore",
 		node_top = "default:dirt",
 		depth_top = 1,
-		node_filler = "default:dirt",
+		--node_filler = "default:dirt",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
@@ -306,6 +296,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_top = "water:coral_biome_sand",
 		depth_top = 1,
 		node_filler = "default:sand",
+		node_water = "default:water_source",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
@@ -338,7 +329,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		name = "rainforest_swamp",
 		node_top = "default:dirt",
 		depth_top = 1,
-		node_filler = "default:dirt",
+--		node_filler = "default:dirt",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
@@ -356,6 +347,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
+		node_water = "default:water_source",
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
@@ -374,110 +366,33 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_filler = 10,
 		node_stone = "default:stone",
 		node_riverbed = "water:sea_stone",
-		depth_riverbed = 2,
-		y_max = -15,
-		y_min = -69, 
-		heat_point = 45,
-		humidity_point = 70,
-	})
-
-	minetest.register_biome({
-		name = "ore biome 1",
-		node_top = "water:sea_stone",
-		depth_top = 0,
-		node_filler = "water:sea_stone",
-		depth_filler = 10,
-		node_stone = "default:stone",
-		node_riverbed = "water:sea_stone",
-		depth_riverbed = 2,
-		y_max = -15,
-		y_min = -69, 
-		heat_point = 60,
-		humidity_point = 68,
-	})
-
-	minetest.register_biome({
-		name = "grassland_ocean 1",
-		node_top = "water:sea_stone",
-		depth_top = 0,
-		node_filler = "water:sea_stone",
-		depth_filler = 10,
-		node_stone = "default:stone",
-		node_riverbed = "water:sea_stone",
+		node_water = "default:dark_water_source",
 		depth_riverbed = 2,
 		y_max = -15,
 		y_min = -69, 
 		heat_point = 50,
-		humidity_point = 35,
+		humidity_point = 50,
 	})
 
-	minetest.register_biome({
-		name = "rainforest_ocean 1",
-		node_top = "water:sea_stone",
-		depth_top = 0,
-		node_filler = "water:sea_stone",
-		depth_filler = 10,
-		node_stone = "default:stone",
-		node_riverbed = "water:sea_stone",
-		depth_riverbed = 2,
-		y_max = -15,
-		y_min = -69, 
-		heat_point = 86,
-		humidity_point = 65,
-	})
+
 	minetest.register_biome({
 		name = "Magma biome",
-		node_top = "default:silver_sand",
+	--	node_top = "default:silver_sand",
 		depth_top = 0,
-		node_dust = "default:silver_sand",
+		--node_dust = "default:silver_sand",
 		node_filler = "default:obsidian",
 		depth_filler = 10,
 		node_stone = "default:stone",
-		node_riverbed = "default:silver_sand",
+	--	node_riverbed = "default:silver_sand",
 		node_water = "default:hot_water_source",
 		depth_riverbed = 2,
 		vertical_blend = 1,
 		y_max = -69,
-		y_min = -119,
-		heat_point = 89,
-		humidity_point = 42,
+		y_min = -150,
+		heat_point = 50,
+		humidity_point = 50,
 	})
-		minetest.register_biome({
-		name = "Magma biome 1",
-		node_top = "default:silver_sand",
-		depth_top = 0,
-		node_dust = "default:silver_sand",
-		node_filler = "default:obsidian",
-		depth_filler = 10,
-		node_stone = "default:stone",
-		node_riverbed = "default:silver_sand",
-		node_water = "default:hot_water_source",
-		depth_riverbed = 2,
-		vertical_blend = 1,
-		y_max = -69,
-		y_min = -119,
-		heat_point = 92,
-		humidity_point = 16,
-	})
-	minetest.register_biome({
-		name = "Magma biome 2",
-		node_top = "default:silver_sand",
-		depth_top = 0,
-		node_dust = "default:silver_sand",
-		node_filler = "default:obsidian",
-		depth_filler = 3,
-		node_stone = "default:obsidian",
-		node_water = "default:hot_water_source",
-		node_riverbed = "default:silver_sand",
-		depth_riverbed = 2,
-		vertical_blend = 1,
-		y_max = -69,
-		y_min = -119,
-		heat_point = 60,
-		humidity_point = 0,
-	})
-
-
+	
 	-- Underground
 
 	minetest.register_biome({
@@ -825,7 +740,7 @@ function register_decorations()
 			octaves = 3,
 			persist = 0.6
 		},
-		biomes = {"desert"},
+		--biomes = {"desert"},
 		y_max = 31000,
 		y_min = 51,
 		schematic = minetest.get_modpath("default") .. "/schematics/large_cactus.mts",
@@ -848,7 +763,7 @@ function register_decorations()
 			octaves = 3,
 			persist = 0.6
 		},
-		biomes = {"desert"},
+		--biomes = {"desert"},
 		y_max = 31000,
 		y_min = 51,
 		decoration = "default:cactus",
@@ -1018,7 +933,7 @@ function register_decorations()
 			octaves = 3,
 			persist = 0.6
 		},
-		biomes = {"desert", "sandstone_desert", "cold_desert"},
+		--biomes = {"desert", "sandstone_desert", "cold_desert"},
 		y_max = 31000,
 		y_min = 51,
 		decoration = "default:dry_shrub",
@@ -1079,7 +994,30 @@ function register_decorations()
 			"water:red_coral",
 		},
 	})
-		minetest.register_decoration({
+
+	minetest.register_decoration({
+		name = "default:dead_corals",
+		deco_type = "simple",
+		place_on = {"default:silver_sand"},
+		place_offset_y = -1,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 10,
+			spread = {x = 50, y = 50, z = 50},
+			seed = 7013,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = 20,
+		y_min = -15,
+		flags = "force_placement",
+		decoration = {
+			"default:coral_skeleton",
+		},
+	})
+		
+	minetest.register_decoration({
 		name = "default:coral_reefs",
 		deco_type = "simple",
 		place_on = {"default:sand","water:coral_reef_biome_sand"},
@@ -1115,7 +1053,7 @@ function register_decorations()
 		noise_params = {
 			offset = -4,
 			scale = 10,
-			spread = {x = 50, y = 50, z = 50},
+			spread = {x = 500, y = 500, z = 500},
 			seed = 6015,
 			octaves = 3,
 			persist = 0.7,
@@ -1123,15 +1061,16 @@ function register_decorations()
 		y_max = 20,
 		y_min = -35,
 		flags = "force_placement",
-		--biomes = {"corals","corals_1"},
+		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		decoration = {
-			"water:purple_coral", "water:teal_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
 	})
-		minetest.register_decoration({
-		name = "water coral2",
+
+	minetest.register_decoration({
+		name = "water coral 3",
 		deco_type = "simple",
 		place_on = {"default:coral_skeleton"},
 		place_offset_y = -1,
@@ -1140,7 +1079,60 @@ function register_decorations()
 		noise_params = {
 			offset = -4,
 			scale = 10,
-			spread = {x = 50, y = 50, z = 50},
+			spread = {x = 500, y = 500, z = 500},
+			seed = 1231,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = 20,
+		y_min = -35,
+		flags = "force_placement",
+		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
+		decoration = {
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+		},
+		height = 3, --Optional for if you want the node to be stacked.
+        height_max = 6
+	})
+
+	minetest.register_decoration({
+		name = "water coral 4",
+		deco_type = "simple",
+		place_on = {"default:coral_skeleton"},
+		place_offset_y = -1,
+		sidelen = 16,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 10,
+			spread = {x = 500, y = 500, z = 500},
+			seed = 4550,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = 20,
+		y_min = -35,
+		flags = "force_placement",
+		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
+		decoration = {
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+		},
+		height = 3, --Optional for if you want the node to be stacked.
+        height_max = 6
+	})
+
+	--
+	minetest.register_decoration({
+		name = "dead ocean",
+		deco_type = "simple",
+		place_on = {"default:coral_skeleton"},
+		place_offset_y = -1,
+		sidelen = 16,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 10,
+			spread = {x = 5000, y = 5000, z = 5000},
 			seed = 6015,
 			octaves = 3,
 			persist = 0.7,
@@ -1148,18 +1140,45 @@ function register_decorations()
 		y_max = 20,
 		y_min = -35,
 		flags = "force_placement",
-		--biomes = {"corals","corals_1"},
+		biomes = {"dead_ocean"},
 		decoration = {
-			"water:orange_coral", "water:red_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
 	})
 
+	minetest.register_decoration({
+		name = "default:dead_coral_reefs",
+		deco_type = "simple",
+		place_on = {"default:sand","water:coral_reef_biome_sand"},
+		place_offset_y = -1,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 10,
+			spread = {x = 5000, y = 5000, z = 5000},
+			seed = 6015,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = 20,
+		y_min = -15,
+		flags = "force_placement",
+		decoration = {
+			"default:coral_green", "default:coral_pink",
+			"default:coral_cyan", "default:coral_brown",
+			"default:coral_orange", "default:coral_skeleton",
+			"water:coral_glow","water:purple_coral",
+			"water:teal_coral","water:coral_glow",
+			"water:red_coral",
+		},
+	})
+
 	-- Kelp
 
 	minetest.register_decoration({
-		name = "default:kelp",
+		name = "water:kelp",
 		deco_type = "simple",
 		place_on = {"water:kelp_biome_sand"},
 		place_offset_y = -1,
@@ -1180,8 +1199,8 @@ function register_decorations()
 			octaves = 20,
 			persist = 0.7
 		},
-		y_max = 20,
-		y_min = -35,
+		y_max = 8,
+		y_min = 8,
 		flags = "force_placement",
 		decoration = "default:sand_with_kelp",
 		biomes = {"kelp_forest"},
@@ -1216,7 +1235,7 @@ minetest.register_decoration({
 		y_max = 26,
 		y_min = 25,
 		decoration = "water:driftwood",
-	flags = "liquid_surface",
+		flags = "liquid_surface",
 })
 
 	minetest.register_decoration({
