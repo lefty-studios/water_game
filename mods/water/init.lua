@@ -5,7 +5,7 @@ dofile(path .. "/tools.lua")
 dofile(path .. "/ores.lua")
 dofile(path .. "/recipes.lua")
 dofile(path .. "/nodes.lua")
-dofile(path .. "/furnace.lua")
+--dofile(path .. "/furnace.lua")
 
 minetest.register_item(":", {
 	type = "none",
