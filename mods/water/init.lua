@@ -5,7 +5,7 @@ dofile(path .. "/tools.lua")
 dofile(path .. "/ores.lua")
 dofile(path .. "/recipes.lua")
 dofile(path .. "/nodes.lua")
-dofile(path .. "/furnace.lua")
+--dofile(path .. "/furnace.lua")
 
 minetest.register_item(":", {
 	type = "none",
@@ -21,6 +21,11 @@ minetest.register_item(":", {
 		},
 		damage_groups = {fleshy=1},
 	}
+})
+
+minetest.register_craftitem("water:coral_spear_tip", {
+	description = "Coral Spear Tip",
+	inventory_image = "water_coral_spear_tip.png",
 })
 
 minetest.register_craft({

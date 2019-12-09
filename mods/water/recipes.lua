@@ -16,7 +16,7 @@ crafting.register_recipe({
 crafting.register_recipe({
 	type   = "inv",
 	output = "spears:spear_coral",
-	items  = {"group:stick 2", "group:coral" },
+	items  = {"group:stick 2", "water:coral_spear_tip" },
 	always_known = true,
 	level  = 1,
 })
