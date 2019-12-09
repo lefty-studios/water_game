@@ -1,4 +1,3 @@
-
 minetest.register_node(":default:water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
@@ -34,7 +33,7 @@ minetest.register_node(":default:water_source", {
 	--light_propagates = true,
 	sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	--drowning = 1,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
@@ -82,7 +81,7 @@ minetest.register_node(":default:water_flowing", {
 	--light_propagates = true,
 	sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	--drowning = 1,
 	liquidtype = "flowing",
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
@@ -128,7 +127,7 @@ minetest.register_node("water:kelp_water_source", {
 	--light_propagates = true,
 	--sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	--drowning = 1,
 	liquidtype = "source",
 	liquid_alternative_flowing = "water:kelp_water_flowing",
 	liquid_alternative_source = "water:kelp_water_source",
@@ -176,7 +175,7 @@ minetest.register_node("water:kelp_water_flowing", {
 	--light_propagates = true,
 	--sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	--drowning = 1,
 	liquidtype = "flowing",
 	liquid_alternative_flowing = "water:kelp_water_flowing",
 	liquid_alternative_source = "water:kelp_water_source",
@@ -318,7 +317,7 @@ minetest.register_node(":default:hot_water_source", {
 	light_propagates = true,
 	sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	drowning = 5,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:hot_water_flowing",
 	liquid_alternative_source = "default:hot_water_source",
@@ -367,7 +366,7 @@ minetest.register_node(":default:hot_water_flowing", {
 	light_propagates = true,
 	sunlight_propagates = true,
 	drop = "",
-	drowning = 1,
+	drowning = 5,
 	liquidtype = "flowing",
 	liquid_alternative_flowing = "default:hot_water_flowing",
 	liquid_alternative_source = "default:hot_water_source",
@@ -397,6 +396,13 @@ function register_coral (color, name)
 		--tiles = {"default_coral_brick.png^[colorize:#19ed96:75"},
 		groups = {cracky = 3, coral = 1},
 		sounds = default.node_sound_stone_defaults(),
+		drop = {
+			max_items = 2,
+			items = {
+				{items = {"water:coral_spear_tip"}, rarity = 5},
+				{items = {"water:"..color.."_coral"}}
+			}
+		},
 	})
 	
 	minetest.register_node("water:"..color.."_coral_brick", {
@@ -415,7 +421,7 @@ function register_coral (color, name)
 			{"water:"..color.."_coral", "water:"..color.."_coral", ""}
 		}
 	})
-	
+--[[	
 	doors.register("door_"..color.."coral", {
 			tiles = {"doors_door_coral_"..color..".png"},
 			description = name.." Coral Door",
@@ -430,7 +436,7 @@ function register_coral (color, name)
 				{"water:"..color.."_coral_brick", "water:"..color.."_coral_brick"},
 			},
 	})
-	
+]]	
 end
 	
 	register_coral("teal", "Teal")
@@ -541,4 +547,83 @@ minetest.register_node(":crafting:work_bench", {
 	tiles = {"water_crafter_top.png", "water_crafter_top.png", "default_steel_block.png"},
 	groups = { snappy = 1 },
 	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
+})
+
+
+minetest.register_node("water:charger", {
+    description = "Phaser Charger",
+	--tiles = {"default_steel_block.png","default_steel_block.png^charger_core.png","default_steel_block.png"},
+	tiles = {"charger_slope.png"},
+	groups = {cracky = 1},
+	is_ground_content = false,
+	sunlight_propagates = false,
+	drawtype = "mesh",
+	mesh = "moreblocks_slope.obj",
+	selection_box = {
+			type = "fixed",
+	fixed = {
+		{-0.5,  -0.5,  -0.5, 0.5, -0.25, 0.5},
+		{-0.5, -0.25, -0.25, 0.5,     0, 0.5},
+		{-0.5,     0,     0, 0.5,  0.25, 0.5},
+		{-0.5,  0.25,  0.25, 0.5,   0.5, 0.5}
+	}
+		},
+		collision_box = {
+			type = "fixed",
+	fixed = {
+		{-0.5,  -0.5,  -0.5, 0.5, -0.25, 0.5},
+		{-0.5, -0.25, -0.25, 0.5,     0, 0.5},
+		{-0.5,     0,     0, 0.5,  0.25, 0.5},
+		{-0.5,  0.25,  0.25, 0.5,   0.5, 0.5}
+	}
+		},
+	paramtype = "light",
+	paramtype2 = "facedir",
+    on_construct = function(pos, placer)
+        local meta = minetest.get_meta(pos)
+        meta:set_string("formspec",
+				"size[8,8.5]"..
+				"list[context;src;3.75,1.5;1,1;]"..
+				"list[current_player;main;0,4.25;8,1;]"..
+				"list[current_player;main;0,5.5;8,3;8]"..
+				"listring[context;dst]"..
+				"listring[current_player;main]"..
+				"listring[context;src]"..
+				"listring[current_player;main]"..
+				--"listring[context;fuel]"..
+				"listring[current_player;main]"..
+				default.get_hotbar_bg(0, 4.25))
+		local inv = meta:get_inventory()
+		inv:set_size('src', 1)		
+	end,
+	on_timer = function(pos)
+		local timer = minetest.get_node_timer(pos)
+		local inv = minetest.get_meta(pos):get_inventory()
+		local src = inv:get_stack("src", 1)
+		--local hammer = inv:get_stack("hammer", 1)
+
+		if src:is_empty() or src:get_wear() == 0 then
+			timer:stop()
+			return
+		end
+
+		-- Tool's wearing range: 0-65535; 0 = new condition
+		src:add_wear(-100)
+		inv:set_stack("src", 1, src)
+		--minetest.chat_send_all("repairing")
+		return true
+	end,
+    on_receive_fields = function(pos, formname, fields, player)
+		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
+		if inv:get_stack("src", 1):get_name() == "gunslinger:phaser" then 
+		--	minetest.chat_send_all(inv:get_stack("src", 1):get_name())	
+		--	minetest.chat_send_all(inv:get_stack("src", 1):get_wear())
+			minetest.get_node_timer(pos):start(1.0)
+			inv:get_stack("src", 1):add_wear(-5000)
+		end
+	end,
+	on_metadata_inventory_move = function(pos)
+		minetest.get_node_timer(pos):start(3.0)
+	end
 })
