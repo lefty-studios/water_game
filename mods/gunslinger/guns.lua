@@ -30,6 +30,7 @@ gunslinger.register_gun("gunslinger:phaser", {
 		inventory_image = "phaser.png",
 		--wield_image = "gunslinger_cheetah.png^[transformFXR300",
 		--wield_scale = {x = 3, y = 3, z = 1}
+		groups = {chargable = 1},
 	},
 	type = "phaser",
 })
