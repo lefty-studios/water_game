@@ -38,8 +38,7 @@ if minetest.global_exists("sfinv") then
 			player_inv_hashes[player:get_player_name()] =
 					crafting.calc_inventory_list_hash(player:get_inventory(), "main")
 
-			local formspec = crafting.make_result_selector(player, "inv", 1, { x = 8, y = 3 }, context)
-			formspec = formspec .. "list[detached:crafting_trash;main;0,3.4;1,1;]" ..
+			local formspec = "list[detached:crafting_trash;main;0,3.4;1,1;]" ..
 					"image[0.05,3.5;0.8,0.8;crafting_trash_icon.png]"
 			return sfinv.make_formspec(player, context, formspec, true)
 		end,

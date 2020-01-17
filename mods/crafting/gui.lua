@@ -191,19 +191,22 @@ function crafting.result_select_on_receive_results(player, type, level, context,
 	end
 end
 
-
-sfinv.override_page("sfinv:crafting", {
-	get = function(self, player, context)
-		local formspec = "image[0.05,3.5;0.8,0.8;creative_trash_icon.png]"
-		return sfinv.make_formspec(player, context, formspec, true)
-	end,
-	on_player_receive_fields = function(self, player, context, fields)
-		if crafting.result_select_on_receive_results(player, "inv", 1, context, fields) then
-			sfinv.set_player_inventory_formspec(player)
+if minetest.global_exists("sfinv") then
+	sfinv.override_page("sfinv:crafting", {
+		get = function(self, player, context)
+			local formspec = crafting.make_result_selector(player, "inv", 1, { x = 8, y = 3 }, context)
+			formspec = formspec .. "list[detached:creative_trash;main;0,3.4;1,1;]" ..
+					"image[0.05,3.5;0.8,0.8;creative_trash_icon.png]"
+			return sfinv.make_formspec(player, context, formspec, true)
+		end,
+		on_player_receive_fields = function(self, player, context, fields)
+			if crafting.result_select_on_receive_results(player, "inv", 1, context, fields) then
+				sfinv.set_player_inventory_formspec(player)
+			end
+			return true
 		end
-		return true
-	end
-})
+	})
+end
 
 local node_fs_context = {}
 local node_serial = 0
@@ -214,10 +217,9 @@ function crafting.make_on_rightclick(type, level, inv_size)
 
 	local function show(player, context)
 		local formspec = crafting.make_result_selector(player, type, level, inv_size, context)
-		formspec = "size[" .. inv_size.x  .. "," .. (inv_size.y + 5.6) .. [[
-				list[current_player;main;0,4.7;8,1;]
-				list[current_player;main;0,5.85;8,3;8]
-			]] .. formspec
+		formspec = "size[" .. inv_size.x  .. "," .. (inv_size.y + 5.6) ..
+				"]list[current_player;main;0," .. (inv_size.y + 1.7) ..";8,1;]" ..
+				"list[current_player;main;0," .. (inv_size.y + 2.85) ..";8,3;8]" .. formspec
 		minetest.show_formspec(player:get_player_name(), formname, formspec)
 	end
 
