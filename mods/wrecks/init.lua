@@ -24,16 +24,9 @@ minetest.register_decoration({
 	name = "water:buried_pod",
 	deco_type = "schematic",
 	place_on = {"group:biome_sand","default:sand"},
-	place_offset_y = -3,
-	sidelen = 1,
-	noise_params = {
-		offset = 0,
-		scale = 0.0001,
-		spread = {x = 100000, y = 100000, z = 100000},
-		seed = 123456, --why not
-		octaves = 20,
-		persist = 0.7
-	},
+	place_offset_y = -4,
+	sidelen = 800,
+	fill_ratio = 0.0002,
 	y_max = 8,
 	y_min = 8,
 	flags = "force_placement",
@@ -41,6 +34,21 @@ minetest.register_decoration({
 	param2 = 48,
 	param2_max = 96,
 })
+--[[
+minetest.register_decoration({
+	name = "water:pod_on_water",
+	deco_type = "schematic",
+	place_on = {"default:water_source"},
+	place_offset_y = 0,
+	sidelen = 800,
+	fill_ratio = 0.0002,
+	y_max = 26,
+	y_min = 25,
+	schematic = minetest.get_modpath(minetest.get_current_modname()) .. "/schematics/pod.mts",
+	--schematic = minetest.get_modpath("ship_at_spawn") .. "/schematics/pod.mts", {["default:chest"] = "water:chest_air"}, true,
+	--flags = "liquid_surface",
+})
+]]--
 
 minetest.register_node(":water:wreck_chest_air", {
 	description = "Hacker",
