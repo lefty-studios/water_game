@@ -6,11 +6,12 @@ if not minetest.global_exists("sfinv") then
 	return
 end
 
-sfinv.register_page("3d_armor:armor", {
-	title = S("Armor"),
+sfinv.override_page("sfinv:crafting", {
 	get = function(self, player, context)
 		local name = player:get_player_name()
 		local formspec = armor:get_armor_formspec(name, true)
+		formspec = formspec .. "list[detached:creative_trash;main;7,3.4;1,1;]" ..
+					"image[7.05,3.5;0.8,0.8;creative_trash_icon.png]"
 		return sfinv.make_formspec(player, context, formspec, false)
 	end
 })
