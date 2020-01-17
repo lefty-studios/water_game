@@ -24,9 +24,9 @@ ships_on_mapgen.schematics = {
 	-- pirate ship from AspireMint
 	--{scm="pirate_ship_aspiremint_3_90", typ="ship", is_ship=true, orients={0}},
 
-	{scm="pirate_shipwreck1__abandoned_1_90", typ="wreck", is_submerged=1, orients={0}},
-	{scm="pirate_shipwreck2_destroyed_by_pirates_0_90", typ="wreck", is_submerged=1, orients={0}},
-	{scm="pirate_shipwreck3_destroyed_by_kraken_0_90", typ="wreck", is_submerged=1, orients={0}},
+	--{scm="pirate_shipwreck1__abandoned_1_90", typ="wreck", is_submerged=1, orients={0}},
+	--{scm="pirate_shipwreck2_destroyed_by_pirates_0_90", typ="wreck", is_submerged=1, orients={0}},
+	--{scm="pirate_shipwreck3_destroyed_by_kraken_0_90", typ="wreck", is_submerged=1, orients={0}},
 	--{scm="house_ruins_sand_1", typ="wreck", is_submerged=1, orients={0}, yoff = -1},
 	
 }
