@@ -547,6 +547,11 @@ minetest.register_node(":crafting:work_bench", {
 	tiles = {"water_crafter_top.png", "water_crafter_top.png", "default_steel_block.png"},
 	groups = { snappy = 1 },
 	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
+	on_construct = function(pos, placer)
+        local meta = minetest.get_meta(pos)	
+		meta:set_string("infotext", "iCrafter X")
+	end,
+
 })
 
 
@@ -595,6 +600,7 @@ minetest.register_node("water:charger", {
 				default.get_hotbar_bg(0, 4.25))
 		local inv = meta:get_inventory()
 		inv:set_size('src', 1)		
+		meta:set_string("infotext", "Phaser Charger")
 	end,
 	on_timer = function(pos)
 		local timer = minetest.get_node_timer(pos)
