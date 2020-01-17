@@ -39,7 +39,7 @@ minetest.register_abm({
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		inv:add_item("main", "phaser:battery "..math.random(1, 3))
-		--inv:add_item("main", "gunslinger:phaser")
+		inv:add_item("main", "water:stove")
 		--inv:add_item("main", "3d_armor:helmet_scuba")
 	end,
 })
@@ -52,9 +52,7 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="water:charger", param2 = minetest.dir_to_facedir({x=0,y=0,z=1})})
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
-		--inv:add_item("src", "phaser:battery "..math.random(1, 3))
 		inv:add_item("src", "gunslinger:phaser")
-		--inv:add_item("main", "3d_armor:helmet_scuba")
 	end,
 })
 
