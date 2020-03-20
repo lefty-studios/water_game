@@ -545,7 +545,7 @@ minetest.register_node("water:coral_biome_sand", {
 minetest.register_node(":crafting:work_bench", {
 	description = "Crafter",
 	tiles = {"water_crafter_top.png", "water_crafter_top.png", "default_steel_block.png"},
-	groups = { snappy = 1 },
+	groups = {snappy = 1, no_pew_pew = 1},
 	on_rightclick = crafting.make_on_rightclick("inv", 2, { x = 8, y = 3 }),
 	on_construct = function(pos, placer)
         local meta = minetest.get_meta(pos)	
@@ -559,7 +559,7 @@ minetest.register_node("water:charger", {
     description = "Phaser Charger",
 	--tiles = {"default_steel_block.png","default_steel_block.png^charger_core.png","default_steel_block.png"},
 	tiles = {"charger_slope.png"},
-	groups = {cracky = 1},
+	groups = {cracky = 1, no_pew_pew = 1},
 	is_ground_content = false,
 	sunlight_propagates = false,
 	drawtype = "mesh",

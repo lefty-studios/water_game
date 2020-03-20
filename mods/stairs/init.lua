@@ -757,7 +757,7 @@ stairs.register_stair_and_slab(
 stairs.register_stair_and_slab(
 	"steelblock",
 	"default:steelblock",
-	{cracky = 1, level = 2},
+	{cracky = 1, level = 2, no_pew_pew = 1},
 	{"default_steel_block.png"},
 	"Steel Block Stair",
 	"Steel Block Slab",
@@ -882,7 +882,7 @@ stairs.register_stair_outer(
 stairs.register_stair(
 	"obsidian_glass",
 	"default:obsidian_glass",
-	{cracky = 3},
+	{cracky = 3, no_pew_pew = 1,},
 	{"stairs_obsidian_glass_split.png", "default_obsidian_glass.png",
 	"stairs_obsidian_glass_stairside.png^[transformFX", "stairs_obsidian_glass_stairside.png",
 	"default_obsidian_glass.png", "stairs_obsidian_glass_split.png"},

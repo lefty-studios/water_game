@@ -231,9 +231,9 @@ local function fire(stack, player)
 					target:punch(obj, nil, {damage_groups = {fleshy = dmg}})
 				end
 			elseif pointed and pointed.type == "node" and gun_def.type == "phaser" then
-				local pos2 = minetest.get_pointed_thing_position(pointed)
+				local pos2 = minetest.get_pointed_thing_position(pointed) 
 				local nodeTarget = minetest.get_node(pos2)
-				if nodeTarget.name ~= "ignore" then
+				if nodeTarget.name ~= "ignore" and minetest.get_item_group(nodeTarget.name, "no_pew_pew") < 1 and nodeTarget.name ~= "default:steelblock" then
 					--minetest.chat_send_all(minetest.get_node(pos2).name)
 					minetest.node_dig(pos2, nodeTarget, player)
 				end	

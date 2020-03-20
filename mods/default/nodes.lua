@@ -1164,7 +1164,7 @@ minetest.register_node("default:steelblock", {
 	description = "Steel Block",
 	tiles = {"default_steel_block.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, no_pew_pew = 1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
