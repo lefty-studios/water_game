@@ -138,7 +138,8 @@ local function furnace_node_timer(pos, elapsed)
 					if inv:room_for_item("dst", cooked.item) then
 						inv:add_item("dst", cooked.item)
 						inv:set_stack("src", 1, aftercooked.items[1])
-						src_time = src_time - cooked.time
+						src_time = src_time - (cooked.time * 15)
+
 						update = true
 					end
 				else
@@ -200,6 +201,7 @@ local function furnace_node_timer(pos, elapsed)
 		-- make sure timer restarts automatically
 		result = true
 	else
+		active = "inactive"
 		formspec = get_furnace_inactive_formspec()
 		swap_node(pos, "water:stove")
 		-- stop timer on the inactive furnace
@@ -306,6 +308,7 @@ minetest.register_abm(
 		if light > 0.25 then
 			--swap_node(pos, "water:stove_active")
 			isTimeDay = true
+			minetest.get_node_timer(pos):start(1.0)
 		end
 	end,
 })
@@ -318,6 +321,7 @@ minetest.register_abm(
 		if light < 0.25 then
 			--swap_node(pos, "water:stove")
 			isTimeDay = false
+			--minetest.get_node_timer(pos):stop()
 		end
 	end,
 })
