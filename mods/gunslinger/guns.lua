@@ -16,12 +16,13 @@
 ]]
 gunslinger.register_type("phaser", {
 	mode = "semi-automatic",
-	dmg_mult = 7.5,
+	dmg_mult = 15,
 	recoil_mult = 0,
 	fire_rate = 1,
 	clip_size = 20,
-	range = 15,
-	on_rclick = nil
+	range = 7.5,
+	on_rclick = nil,
+	sounds = {fire = "phaser_shoot",}
 })
 
 gunslinger.register_gun("gunslinger:phaser", {
