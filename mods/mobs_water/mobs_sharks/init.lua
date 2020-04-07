@@ -51,6 +51,12 @@ if mobs.mod and mobs.mod == "redo" then
 			hp_min = 20,
 			hp_max = 25,
 			armor = 150,
+			drops = {
+				{name = "mobs_sharks:fin",
+				chance = 1,
+				min = 1,
+				max = 3,},
+			},
 			collisionbox = {-0.75, -0.5, -0.75, 0.75, 0.5, 0.75},
 			visual = "mesh",
 			mesh = l_model,
@@ -102,6 +108,12 @@ if mobs.mod and mobs.mod == "redo" then
 			hp_min = 15,
 			hp_max = 20,
 			armor = 125,
+			drops = {
+				{name = "mobs_sharks:fin",
+				chance = 1,
+				min = 1,
+				max = 3,},
+			},
 			collisionbox = {-0.57, -0.38, -0.57, 0.57, 0.38, 0.57},
 			visual = "mesh",
 			visual_size = {x=0.75, y=0.75},
@@ -140,6 +152,12 @@ if mobs.mod and mobs.mod == "redo" then
 			collisionbox = {-0.38, -0.25, -0.38, 0.38, 0.25, 0.38},
 			visual = "mesh",
 			visual_size = {x=0.5, y=0.5},
+			drops = {
+				{name = "mobs_sharks:fin",
+				chance = 1,
+				min = 1,
+				max = 3,},
+			},
 			mesh = l_model,
 			textures = l_skins,
 			makes_footstep_sound = false,
@@ -161,3 +179,22 @@ if mobs.mod and mobs.mod == "redo" then
 	end
 
 end
+minetest.register_craftitem("mobs_sharks:fin", {
+	description = "Shark Fin",
+	inventory_image = "shark_fin.png",
+	on_use = minetest.item_eat(1), 
+	groups = {fin=1},
+})
+
+minetest.register_craftitem("mobs_sharks:fin_cooked", {
+	description = "Cooked Shark Fin",
+	inventory_image = "shark_fin_cooked.png",
+	on_use = minetest.item_eat(5), 
+	groups = {cooked_fin=1},
+})
+minetest.register_craft({
+	type = "cooking",
+	output = "mobs_sharks:fin_cooked",
+	recipe = "mobs_sharks:fin",
+	cooktime = 4,
+})
