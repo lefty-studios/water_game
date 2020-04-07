@@ -68,8 +68,44 @@ minetest.register_on_joinplayer(function(player)
 		input = io.open(minetest.get_worldpath().."/hasPlayerJoined","r")
 		local pos_below = {x=player:get_pos().x-2, y=player:get_pos().y-2, z=player:get_pos().z-4}
 		minetest.place_schematic(pos_below, minetest.get_modpath("ship_at_spawn") .. "/schematics/pod_1.mts", 360, {["water:charger"] = "water:charger_air",["default:chest"] = "water:chest_air"}, true)
+		--minetest.add_entity(vector.new(player:get_pos().x, player:get_pos().y, player:get_pos().z), "water:shark_repellant")
 		io.close(input)
 	else
 		--minetest.chat_send_all("Player has already joined for first time ")
 	end
 end)
+--[[
+minetest.register_entity(":water:shark_repellant",{
+	-- common props
+physical = false,
+stepheight = 0,				
+collide_with_objects = false,
+collisionbox = {-0.02, -0.02, -0.02, 0.02, 0.02, 0.02},
+visual = "sprite",
+--mesh = "water_life_buoy.b3d",
+textures = {"trans.png"},
+--visual_size = {x = 5, y = 5},
+static_save = true,
+makes_footstep_sound = false,
+on_step = mobkit.stepfunc,	-- required
+on_activate = mobkit.actfunc,		-- required
+get_staticdata = mobkit.statfunc,
+springiness=0,
+--buoyancy = 0.93,					-- portion of hitbox submerged
+max_speed = 0,    
+jump_height = 0,
+view_range = 16,
+--	lung_capacity = 0, 		-- seconds
+max_hp = 65535,
+timeout = 0,
+brainfunc = function(self) return end,
+on_punch=function(self, puncher, time_from_last_punch, tool_capabilities, dir)
+return
+end,
+	
+on_rightclick = function(self, clicker)
+return
+end,
+	
+})
+]]
