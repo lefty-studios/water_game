@@ -5,22 +5,22 @@ mobs:register_mob("mobs_nssm:kraken", {
 	attack_monsters = true,
 	hp_max = 350,
 	hp_min = 350,
-	attack_animals = true,
+	attack_animals = false,
 	--attack_players =false,
 	--specific_attack = {"boats:boat","mobs_sharks:shark_lg","mobs_sharks:shark_md","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim","mobs_nssm:crab","mobs_nssm:kraken","player"},
 	collisionbox = {-2, 0, -2, 2, 4, 2},
 	visual = "mesh",
 	mesh = "kraken.x",
 	textures = {{"kraken.png"}, {"kraken2.png"}},
-	visual_size = {x=15, y=15},
-	lifetimer=500,
-	inker = false,
-	view_range = 50,
+	visual_size = {x=10, y=10},
+	lifetimer=50000,
+	inker = true,
+	view_range = 15,
 	fly = true,
-	fly_in = "default:water_source",
+	fly_in = "default:dark_water_source",
 	fall_speed = -1,
-	walk_velocity = 3.5,
-	run_velocity = 4.5,
+	walk_velocity = 1.5,
+	run_velocity = 2.5,
 	damage = 14,
 	rotate = 270,
 	jump = false,
@@ -241,9 +241,9 @@ mobs:register_mob("mobs_nssm:bloco", {
 
 mobs:spawn_specific("mobs_nssm:crab", {"water:orange_coral", "water:red_coral","water:teal_coral", "water:purple_coral",}, {"default:water_source"}, 0, 30, 100, 1000, 12000, -31000, 25)
 --mobs:spawn_specific("mobs_nssm:dolidrosaurus", {"default:water_source"}, {"default:water_source"}, 0, 20, 100, 35000000/1000, 1, -31000, 24)
-mobs:spawn_specific("mobs_nssm:kraken", {"default:water_source"}, {"default:water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
+mobs:spawn_specific("mobs_nssm:kraken", {"default:dark_water_source"}, {"default:dark_water_source"}, 0, 20, 400, 5000000000/1000, 1, -31000, -15)
 mobs:spawn_specific("mobs_nssm:octopus", {"default:water_source"}, {"default:water_source"}, 0, 20, 80, 38000000/1000, 1, -31000, 15)
-mobs:spawn_specific("mobs_nssm:bloco", "water:sea_stone", "default:water_source", 0, 30, 100, 100, 12, -31000, 20)
+mobs:spawn_specific("mobs_nssm:bloco", {"water:sea_stone"}, {"default:dark_water_source", "default:water_source",}, 0, 30, 100, 100, 12, -31000, 20)
 
 
 
