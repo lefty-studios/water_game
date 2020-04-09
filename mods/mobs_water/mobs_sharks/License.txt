@@ -2,6 +2,6 @@ Licenses
 
 Model/Textures:	CC-BY-SA 3.0
 				http://creativecommons.org/licenses/by-sa/3.0/de/legalcode
-Author: Sapier
+Author: Lefty Studios
 
-texture modification by: blert2112
+modified code from: blert2112

@@ -9,17 +9,18 @@ if mobs.mod and mobs.mod == "redo" then
 		"#a0a0a0:150"	--grey
 	}
 	local l_skins = {
-		{"(shark_first.png^[colorize:"..l_colors[3]..")^(shark_second.png^[colorize:"..l_colors[4]..")^shark_third.png"},
-		{"(shark_first.png^[colorize:"..l_colors[1]..")^(shark_second.png^[colorize:"..l_colors[2]..")^shark_third.png"},
-		{"(shark_first.png^[colorize:"..l_colors[4]..")^(shark_second.png^[colorize:"..l_colors[2]..")^shark_third.png"}
+		{"(lefty_shark.png^[colorize:"..l_colors[3]..")^lefty_shark_2.png"},
+		{"(lefty_shark.png^[colorize:"..l_colors[1]..")^lefty_shark_2.png"},
+		{"(lefty_shark.png^[colorize:"..l_colors[4]..")^lefty_shark_2.png"}
 	}
 	local l_anims = {
 		speed_normal = 24,	speed_run = 24,
-		stand_start = 1,	stand_end = 80,
-		walk_start = 80,	walk_end = 160,
-		run_start = 80,		run_end = 160
+		stand_start = 0,	stand_end = 0,
+		walk_start = 0,	walk_end = 15,
+		run_start = 0,		run_end = 15,
+		punch_start = 15,	punch_end = 30
 	}
-	local l_model			= "mob_shark.b3d"
+	local l_model			= "lefty_shark.b3d"
 	local l_egg_texture		= "mob_shark_shark_item.png"
 	local l_spawn_in		= {"default:water_flowing","default:water_source"}
 	local l_spawn_near		= {"default:water_flowing","default:water_source","seawrecks:woodship","seawrecks:uboot"}
@@ -45,7 +46,7 @@ if mobs.mod and mobs.mod == "redo" then
 			attack_animals = true,
 			attack_monsters = true,
 			--attack_players =false,
-			specific_attack = {"boats:boat","player", "mobs_nssm:crab","mobs_fish:tropical","mobs_nssm:octopus","mobs_nssm:kraken","mobs_m:whale","mobs_crocs:crocodile_swim"},
+			specific_attack = {"boats:boat","player", "mobs_nssm:crab","mobs_nssm:octopus","mobs_nssm:kraken","mobs_m:whale","mobs_crocs:crocodile_swim"},
 			damage = 8,
 			reach = 3,
 			hp_min = 20,
@@ -57,7 +58,7 @@ if mobs.mod and mobs.mod == "redo" then
 				min = 1,
 				max = 3,},
 			},
-			collisionbox = {-0.75, -0.5, -0.75, 0.75, 0.5, 0.75},
+			collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 			visual = "mesh",
 			mesh = l_model,
 			textures = l_skins,
@@ -67,8 +68,8 @@ if mobs.mod and mobs.mod == "redo" then
 			fly = true,
 			fly_in = "default:water_source",
 			fall_speed = 0,
-			rotate = 270,
 			view_range = 25,
+			visual_size = {x=15, y=15},
 			water_damage = 0,
 			lava_damage = 10,
 			light_damage = 0,
@@ -102,7 +103,7 @@ if mobs.mod and mobs.mod == "redo" then
 			attack_type = "dogfight",
 			attack_animals = true,
 			attack_monsters = true,
-			specific_attack = {"player", "mobs_fish:tropical","mobs_nssm:crab","mobs_nssm:octopus","mobs_nssm:kraken","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim"},
+			specific_attack = {"player","mobs_nssm:crab","mobs_nssm:octopus","mobs_nssm:kraken","mobs_sharks:shark_sm","mobs_crocs:crocodile_swim"},
 			damage = 6,
 			reach = 2,
 			hp_min = 15,
@@ -114,9 +115,9 @@ if mobs.mod and mobs.mod == "redo" then
 				min = 1,
 				max = 3,},
 			},
-			collisionbox = {-0.57, -0.38, -0.57, 0.57, 0.38, 0.57},
+			collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 			visual = "mesh",
-			visual_size = {x=0.75, y=0.75},
+			visual_size = {x=8.75, y=8.75},
 			mesh = l_model,
 			textures = l_skins,
 			makes_footstep_sound = false,
@@ -125,7 +126,6 @@ if mobs.mod and mobs.mod == "redo" then
 			fly = true,
 			fly_in = "default:water_source",
 			fall_speed = -1,
-			rotate = 270,
 			view_range = 10,
 			water_damage = 0,
 			lava_damage = 10,
@@ -149,9 +149,9 @@ if mobs.mod and mobs.mod == "redo" then
 			hp_min = 10,
 			hp_max = 15,
 			armor = 100,
-			collisionbox = {-0.38, -0.25, -0.38, 0.38, 0.25, 0.38},
+			collisionbox = {-0.25, -0.25, -0.25, 0.25, 0.25, 0.25},
 			visual = "mesh",
-			visual_size = {x=0.5, y=0.5},
+			visual_size = {x=7.5, y=7.5},
 			drops = {
 				{name = "mobs_sharks:fin",
 				chance = 1,
@@ -166,7 +166,6 @@ if mobs.mod and mobs.mod == "redo" then
 			fly = true,
 			fly_in = "default:water_source",
 			fall_speed = -1,
-			rotate = 270,
 			view_range = 10,
 			water_damage = 0,
 			lava_damage = 10,
