@@ -314,7 +314,7 @@ mobs:register_mob("mobs_m:pirana", {
 mobs:register_spawn("mobs_m:pirana", {"default:river_water_source",}, 20, 10, 15000, 20, 11000)
 
 mobs:register_egg("mobs_m:pirana", "Piranha", "wool_dark_grey.png", 1)
-]]--
+
 mobs:register_mob("mobs_m:dearcmhara", {
 	type = "monster",
 	passive = false,
@@ -359,7 +359,7 @@ mobs:register_mob("mobs_m:dearcmhara", {
 })
 
 mobs:register_egg("mobs_m:dearcmhara", "Dearcmhara", "wool_cyan.png", 1)
-
+]]--
 mobs:register_mob("mobs_m:whale", {
 	type = "animal",
 	passive = false,
@@ -396,11 +396,6 @@ mobs:register_mob("mobs_m:whale", {
 	view_range = 14,
 	drops = {
 		{name = "mobs:meat_raw", chance = 1, min = 50, max = 150},
-	},
-	sounds = {
-      random = "whale_1",
-      death = "whale_1",
-      distance = 128,
 	},
 	animation = {
 		speed_normal = 0.1,
