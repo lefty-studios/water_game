@@ -444,6 +444,7 @@ end
 	register_coral("red","Red")
 	register_coral("orange","Orange")
 	register_coral("brown","Brown")
+	register_coral("blue","blue")
 	minetest.register_alias_force("default:coral_orange", "water:orange_coral")
 	minetest.register_alias_force("default:coral_brown", "water:brown_coral")
 

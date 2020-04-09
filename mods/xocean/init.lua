@@ -1,4 +1,4 @@
-minetest.register_alias_force("xocean:brain_block", "water:purple_coral")
+minetest.register_alias_force("xocean:brain_block", "water:blue_coral")
 minetest.register_alias_force("xcoral:fire", "water:orange_coral")
 minetest.register_alias_force("xcoral:bubble_block", "water:purple_coral")
 minetest.register_alias_force("xcoral:bubble", "water:purple_coral")

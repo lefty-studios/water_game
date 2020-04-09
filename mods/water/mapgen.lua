@@ -991,7 +991,7 @@ function register_decorations()
 			"default:coral_orange", "default:coral_skeleton",
 			"water:coral_glow","water:purple_coral",
 			"water:teal_coral","water:coral_glow",
-			"water:red_coral",
+			"water:red_coral","water:blue_coral",
 		},
 	})
 
@@ -1040,7 +1040,7 @@ function register_decorations()
 			"default:coral_orange", "default:coral_skeleton",
 			"water:coral_glow","water:purple_coral",
 			"water:teal_coral","water:coral_glow",
-			"water:red_coral",
+			"water:red_coral","water:blue_coral",
 		},
 	})
 	minetest.register_decoration({
@@ -1063,7 +1063,7 @@ function register_decorations()
 		flags = "force_placement",
 		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		decoration = {
-			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral","water:blue_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
@@ -1089,7 +1089,7 @@ function register_decorations()
 		flags = "force_placement",
 		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		decoration = {
-			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral","water:blue_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
@@ -1115,7 +1115,7 @@ function register_decorations()
 		flags = "force_placement",
 		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		decoration = {
-			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral","water:blue_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
@@ -1142,7 +1142,7 @@ function register_decorations()
 		flags = "force_placement",
 		biomes = {"dead_ocean"},
 		decoration = {
-			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral",
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral","water:blue_coral",
 		},
 		height = 3, --Optional for if you want the node to be stacked.
         height_max = 6
@@ -1171,7 +1171,7 @@ function register_decorations()
 			"default:coral_orange", "default:coral_skeleton",
 			"water:coral_glow","water:purple_coral",
 			"water:teal_coral","water:coral_glow",
-			"water:red_coral",
+			"water:red_coral","water:blue_coral", 
 		},
 	})
 
