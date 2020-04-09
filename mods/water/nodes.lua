@@ -186,7 +186,6 @@ minetest.register_node("water:kelp_water_flowing", {
 	sounds = default.node_sound_water_defaults(),
 })
 
-
 minetest.register_node(":default:dark_water_source", {
 	description = "Water Source",
 	drawtype = "liquid",
@@ -219,8 +218,8 @@ minetest.register_node(":default:dark_water_source", {
 	diggable = false,
 	buildable_to = true,
 	is_ground_content = false,
---	light_propagates = true,
---	sunlight_propagates = true,
+	--light_propagates = true,
+	--sunlight_propagates = true,
 	drop = "",
 	drowning = 3,
 	liquidtype = "source",
@@ -268,7 +267,7 @@ minetest.register_node(":default:dark_water_flowing", {
 	buildable_to = true,
 	is_ground_content = false,
 	--light_propagates = true,
---	sunlight_propagates = true,
+	--sunlight_propagates = true,
 	drop = "",
 	drowning = 3,
 	liquidtype = "flowing",
