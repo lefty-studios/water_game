@@ -98,8 +98,9 @@ function register_plants (name, description, stages, regenstat,time)
 		y_min = -15,
 		flags = "force_placement",
 		decoration = {
-            "farming:"..name.."_"..stages, 
             "farming:"..name.."_"..(stages-(stages-1)), 
+            "farming:"..name.."_"..(stages-(stages-2)),
+            "farming:"..name.."_"..(stages-(stages-3)),  
 		},
 	})
 end
