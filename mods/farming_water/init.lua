@@ -39,8 +39,12 @@ function register_plants (name, description, stages, regenstat,time)
             interval = time,
             chance = 1,
             action = function(pos)
-                minetest.set_node(pos, {name = "air"})
-                minetest.set_node(pos, {name = "farming:"..name.."_"..(i+1)})
+                local time = minetest.get_timeofday()
+		        --minetest.chat_send_all(light)
+		        if time > 0.25 then
+                    minetest.set_node(pos, {name = "air"})
+                    minetest.set_node(pos, {name = "farming:"..name.."_"..(i+1)})
+                end
             end,
         }
     end
@@ -83,10 +87,10 @@ function register_plants (name, description, stages, regenstat,time)
     minetest.register_decoration({
 		name = "farming gen for "..name,
 		deco_type = "simple",
-		place_on = {"default:sand","group:biome_sand"},
+		place_on = {"default:sand"},
 		place_offset_y = -1,
 		sidelen = 4,
-		noise_params = {
+        noise_params = {
 			offset = -4,
 			scale = 10,
 			spread = {x = 50, y = 50, z = 50},

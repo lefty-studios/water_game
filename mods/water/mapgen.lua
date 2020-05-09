@@ -1,9 +1,9 @@
-mapgen_params = {water_level = 25}
+mapgen_params = {water_level = 24}
 minetest.set_mapgen_params(mapgen_params)
 minetest.clear_registered_decorations()
 minetest.clear_registered_biomes()
-local WATER_LEVEL = minetest.setting_get("water_level")
-
+--local WATER_LEVEL = minetest.setting_get("water_level")
+local WATER_LEVEL = 25
 minetest.set_mapgen_setting("mg_name", "flat", true)
 minetest.set_mapgen_setting("mg_flags", "nocaves, nodungeons, light, decorations, biomes", true)
 minetest.set_mapgen_setting("mgflat_spflags", "hills, lakes", true)
@@ -26,7 +26,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -41,8 +41,8 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 21,
-		y_min = 25,
+		y_max = 26,
+		y_min = 27,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -57,10 +57,11 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 20,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 50,
 		humidity_point = 35,
+		node_water = "default:water_source",
 	})
 
 	-- Coniferous forest
@@ -76,7 +77,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 45,
 		humidity_point = 70,
 	})
@@ -99,14 +100,14 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 
 	minetest.register_biome({
 		name = "kelp_forest", --14122497862344701939 168.8, 34, -282.2
-	--	node_water = "water:kelp_water_source",
+		node_water = "water:kelp_water_source",
 		node_top = "water:kelp_biome_sand",
 		depth_top = 1,
 		node_filler = "default:sand",
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 20,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 60,
 		humidity_point = 68,
@@ -123,7 +124,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 60,
 		humidity_point = 68,
 	})
@@ -137,7 +138,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		depth_filler = 3,
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 20,
+		y_max = 24,
 		y_min = 19,
 		heat_point = 60,
 		humidity_point = 68,
@@ -154,7 +155,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 19,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 45,
 		humidity_point = 70,
@@ -172,7 +173,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 92,
 		humidity_point = 16,
 	})
@@ -188,7 +189,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 25,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 92,
 		humidity_point = 16,
@@ -206,7 +207,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 60,
 		humidity_point = 0,
 	})
@@ -221,7 +222,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_stone = "default:sandstone",
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
-		y_max = 25,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 60,
 		humidity_point = 0,
@@ -238,7 +239,7 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 40,
 		humidity_point = 0,
 	})
@@ -250,10 +251,10 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		--node_filler = "default:silver_sand",
 		--depth_filler = 3,
 		node_riverbed = "default:silver_sand",
-		node_water = "default:water_source",
+		node_water = "default:mese_water_source",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 25,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 40,
 		humidity_point = 0,
@@ -271,9 +272,10 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 89,
 		humidity_point = 42,
+		node_water = "default:water_source",
 	})
 
 	minetest.register_biome({
@@ -285,10 +287,11 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
-		y_max = 20,
-		y_min = 19,
+		y_max = 26,
+		y_min = 25,
 		heat_point = 89,
 		humidity_point = 42,
+		node_water = "default:water_source",
 	})
 
 	minetest.register_biome({
@@ -302,10 +305,11 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
 		vertical_blend = 1,
-		y_max = 20,
+		y_max = 24,
 		y_min = -15,
 		heat_point = 89,
 		humidity_point = 42,
+		node_water = "default:water_source",
 	})
 
 	-- Rainforest
@@ -320,9 +324,10 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
 		y_max = upper_limit,
-		y_min = 25,
+		y_min = 27,
 		heat_point = 86,
 		humidity_point = 65,
+		node_water = "default:water_source",
 	})
 
 	minetest.register_biome({
@@ -334,10 +339,11 @@ minetest.set_mapgen_setting("mgflat_np_terrain", "noise_params_2d 0, 0.7, (250, 
 		node_riverbed = "default:sand",
 		node_stone = "default:desert_stone",
 		depth_riverbed = 2,
-		y_max = 25,
+		y_max = 26,
 		y_min = 25,
 		heat_point = 86,
 		humidity_point = 65,
+		node_water = "default:water_source",
 	})
 
 	minetest.register_biome({
@@ -985,6 +991,7 @@ function register_decorations()
 		y_max = 20,
 		y_min = -15,
 		flags = "force_placement",
+		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		decoration = {
 			"default:coral_green", "default:coral_pink",
 			"default:coral_cyan", "default:coral_brown",
@@ -1014,9 +1021,33 @@ function register_decorations()
 		flags = "force_placement",
 		decoration = {
 			"default:coral_skeleton",
+			"water:grey_coral",
 		},
 	})
-		
+	minetest.register_decoration({
+		name = "dead coral stacks",
+		deco_type = "simple",
+		place_on = {"default:coral_skeleton"},
+		place_offset_y = -1,
+		sidelen = 4,
+		noise_params = {
+			offset = -4,
+			scale = 10,
+			spread = {x = 500, y = 500, z = 500},
+			seed = 7013,
+			octaves = 3,
+			persist = 0.7,
+		},
+		y_max = 20,
+		y_min = -35,
+		flags = "force_placement",
+		biomes = {"dead_ocean"},
+		decoration = {
+			"water:purple_coral", "water:teal_coral", "water:orange_coral", "water:red_coral","water:blue_coral",
+		},
+		height = 3, --Optional for if you want the node to be stacked.
+        height_max = 6
+	})
 	minetest.register_decoration({
 		name = "default:coral_reefs",
 		deco_type = "simple",
@@ -1033,6 +1064,7 @@ function register_decorations()
 		},
 		y_max = 20,
 		y_min = -15,
+		biomes = {"corals","corals_1","rainforest_ocean","coral 2","coral_1"},
 		flags = "force_placement",
 		decoration = {
 			"default:coral_green", "default:coral_pink",
@@ -1123,7 +1155,7 @@ function register_decorations()
 
 	--
 	minetest.register_decoration({
-		name = "dead ocean",
+		name = "dead ocean coral",
 		deco_type = "simple",
 		place_on = {"default:coral_skeleton"},
 		place_offset_y = -1,
@@ -1219,7 +1251,7 @@ function register_decorations()
 			octaves = 3,
 			persist = 0.7
 		},
-		y_max = 20,
+		y_max = 24,
 		y_min = -100,
 		schematic = minetest.get_modpath("water") .. "/schematics/pyramid.mts",
 		flags = "place_center_x, place_center_z",
@@ -1251,4 +1283,49 @@ minetest.register_decoration({
         height_max = 1,
 		flags = "force_placement",
 	})
+
+minetest.register_decoration({
+	name = "kelp_forest_growth_1",
+	deco_type = "schematic",
+	place_on = {"water:kelp_biome_sand","default:sand_with_kelp"},
+	place_offset_y = 1,
+	sidelen = 1  ,
+	noise_params = {
+		offset = 0.0001,
+		scale = 0.000001,
+		spread = {x = 100000, y = 100000, z = 100000},
+		seed = 87112,
+		octaves = 20,
+		persist = 0.7
+	},
+	y_max = 9,
+	y_min = 8,
+	flags = "force_placement",
+	biomes = {"kelp_forest"},
+	schematic = minetest.get_modpath("water") .. "/schematics/kelp_forest_growth_1.mts",
+	param2 = 48,
+	param2_max = 96,
+})
+
+minetest.register_decoration({
+	name = "kelp_forest_growth_2",
+	deco_type = "schematic",
+	place_on = {"water:kelp_biome_sand"},
+	place_offset_y = 1,
+	sidelen = 1,
+	noise_params = {
+		offset = 0.0001,
+		scale = 0.000001,
+		spread = {x = 100000, y = 100000, z = 100000},
+		seed = 87112,
+		octaves = 20,
+		persist = 0.7
+	},
+	y_max = 9,
+	y_min = 8,
+	flags = "force_placement",
+	schematic = minetest.get_modpath("water") .. "/schematics/kelp_forest_growth_2.mts",
+	param2 = 48,
+	param2_max = 96,
+})
 register_decorations()

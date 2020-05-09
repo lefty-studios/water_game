@@ -378,6 +378,112 @@ minetest.register_node(":default:hot_water_flowing", {
 	sounds = default.node_sound_water_defaults(),
 })
 
+-- Mese Infected Nodes
+minetest.register_node(":default:mese_water_source", {
+	description = "Mese Water Source",
+	drawtype = "liquid",
+	tiles = {
+		{
+			name = "default_mese_water_source_animated.png",
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+	},
+	special_tiles = {
+		-- New-style water source material (mostly unused)
+		{
+			name = "default_mese_water_source_animated.png",
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+			backface_culling = false,
+		},
+	},
+	alpha = 160,
+	paramtype = "light",
+	light_source = default.LIGHT_MAX - 1,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "default:mese_water_flowing",
+	liquid_alternative_source = "default:mese_water_source",
+	liquid_viscosity = 1,
+	damage_per_second = 0.5 * 2,
+	post_effect_color = {a = 191, r = 255, g = 242, b = 0},
+	groups = {meseinfectw = 1, liquid = 3, puts_out_fire = 1,not_in_creative_inventory = 1},
+})
+
+minetest.register_node(":default:mese_water_flowing", {
+	description = "Flowing Water",
+	drawtype = "flowingliquid",
+	tiles = {"default_mese_water.png"},
+	special_tiles = {
+		{
+			name = "default_mese_water_flowing_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.8,
+			},
+		},
+		{
+			name = "default_mese_water_flowing_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.8,
+			},
+		},
+	},
+	alpha = 160,
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	light_source = default.LIGHT_MAX - 1,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "default:mese_water_flowing",
+	liquid_alternative_source = "default:mese_water_source",
+	liquid_viscosity = 1,
+	damage_per_second = 0.5 * 2,
+	post_effect_color = {a = 191, r = 255, g = 242, b = 0},
+	groups = {liquid = 3, meseinfectw = 1,
+		not_in_creative_inventory = 1},
+})
+
+minetest.register_node("water:kelp_tree_thing", {
+	description = "This appears to be some sort of woody plant that is native to this planet",
+	tiles = {"water_kelp_tree_thing.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+
+	on_place = minetest.rotate_node
+})
+
+
 minetest.register_node("water:coral_glow", {
 	description = "Glow Coral",
 	tiles = {"default_coral_yellow.png"},
@@ -444,7 +550,8 @@ end
 	register_coral("red","Red")
 	register_coral("orange","Orange")
 	register_coral("brown","Brown")
-	register_coral("blue","blue")
+	register_coral("blue","Blue")
+	register_coral("grey","Grey")
 	minetest.register_alias_force("default:coral_orange", "water:orange_coral")
 	minetest.register_alias_force("default:coral_brown", "water:brown_coral")
 
@@ -540,8 +647,10 @@ minetest.register_node("water:coral_biome_sand", {
 	drop = "default:sand",
 	sounds = default.node_sound_sand_defaults(),
 })
-
-
+--[[
+minetest.register_alias_force("water:coral_reef_biome_sand", "default:sand")
+minetest.register_alias_force("water:kelp_biome_sand", "default:sand")
+minetest.register_alias_force("water:coral_biome_sand", "default:sand")]]--
 minetest.register_node(":crafting:work_bench", {
 	description = "Crafter",
 	tiles = {"water_crafter_top.png", "water_crafter_top.png", "default_steel_block.png"},
