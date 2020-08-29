@@ -87,19 +87,20 @@ function register_plants (name, description, stages, regenstat,time)
     minetest.register_decoration({
 		name = "farming gen for "..name,
 		deco_type = "simple",
-		place_on = {"default:sand"},
+		place_on = {"default:coral_green", "default:coral_pink",
+        "default:coral_cyan",},
 		place_offset_y = -1,
 		sidelen = 4,
         noise_params = {
 			offset = -4,
 			scale = 10,
-			spread = {x = 50, y = 50, z = 50},
-			seed = 7013,
+			spread = {x = 5000, y = 5000, z = 5000},
+			seed = 6015,
 			octaves = 3,
 			persist = 0.7,
 		},
-		y_max = 20,
-		y_min = -15,
+		y_max = 9,
+		y_min = 8,
 		flags = "force_placement",
 		decoration = {
             "farming:"..name.."_"..(stages-(stages-1)), 
@@ -111,3 +112,16 @@ end
 
 register_plants("hydra_berry","Hydra Berry plant",4,3,45)
 register_plants("fire_tube","Fire tube plant",3,3,45)
+
+minetest.register_node(":water:grow_pod", {
+    drawtype = "mesh",
+    -- Path to the mesh
+    mesh = "grow_pod_2.b3d",
+    -- Holds the texture for each "material"
+    tiles = {
+        "grow_pod.png"
+    },
+    sunlight_propagates = true,
+    paramtype = "light",
+    groups = {snappy = 3},
+})
