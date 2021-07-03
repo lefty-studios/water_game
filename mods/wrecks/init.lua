@@ -81,3 +81,92 @@ minetest.register_abm({
 		inv:add_item("main", "3d_armor:helmet_scuba")
 	end,
 })
+
+minetest.register_node(":water:corpse_air", {
+	description = "Hacker",
+    drawtype = "airlike",
+    paramtype = "light",
+    sunlight_propagates = true,
+
+    walkable     = false, -- Would make the player collide with the air node
+    pointable    = false, -- You can't select the node
+    diggable     = false, -- You can't dig the node
+    buildable_to = false,  -- Nodes can be replace this node.
+                          -- (you can place a node and remove the air node
+                          -- that used to be there)
+    drop = "",
+    groups = {not_in_creative_inventory=1}
+})
+
+
+
+math.randomseed(os.time())
+minetest.register_abm({
+	nodenames = {"water:corpse_air"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		minetest.set_node(pos, {name="wrecks:corpse"})
+		local meta = minetest.get_meta(pos)
+		local inv = meta:get_inventory()
+		inv:add_item("main", "phaser:battery "..math.random(1, 3))
+		inv:add_item("main", "phaser:phaser")
+		--inv:add_item("main", "3d_armor:helmet_scuba")
+	end,
+})
+
+minetest.register_node("wrecks:corpse", {
+    drawtype = "mesh",
+
+    -- Holds the texture for each "material"
+    tiles = {
+        "character.png"
+    },
+	description = "Corpse",
+    -- Path to the mesh
+    mesh = "death_character.obj",
+	drop = "bones:bones",
+	paramtype2 = "facedir",
+	groups = {dig_immediate = 2},
+	on_construct = function(pos, placer)
+        local meta = minetest.get_meta(pos)
+        meta:set_string("formspec",
+		"size[8,9]" ..
+		"list[current_name;main;0,0.3;8,4;]" ..
+		"list[current_player;main;0,4.85;8,1;]" ..
+		"list[current_player;main;0,6.08;8,3;8]" ..
+		"listring[current_name;main]" ..
+		"listring[current_player;main]" ..
+		default.get_hotbar_bg(0,4.85))
+		local inv = meta:get_inventory()
+		inv:set_size("main", 8 * 4)
+	end,
+	can_dig = function(pos, player)
+		local inv = minetest.get_meta(pos):get_inventory()
+		return inv:is_empty("main")
+	end,
+
+	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		return count
+	end,
+
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		return 0
+	end,
+
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		return stack:get_count()
+	end,
+
+})
+--[[
+minetest.register_decoration({
+	name = "water:corpse",
+	deco_type = "simple",
+		place_on = {"default:sand","group:biome_sand"},
+	sidelen = 16,
+		fill_ratio =1,
+	y_max = 3100,
+	y_min = -3100,
+	decoration = "wrecks:corpse",
+})]]
