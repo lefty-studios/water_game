@@ -23,7 +23,7 @@ minetest.register_node(":default:water_source", {
 			},
 		},
 	},
-	alpha = 160,
+	alpha = 200,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
@@ -38,7 +38,7 @@ minetest.register_node(":default:water_source", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = 0,
-	post_effect_color = {a = 103, r = 30, g = 76, b = 90},
+	post_effect_color = {a = 200, r = 30, g = 60, b = 90},
 	--post_effect_color = {a = 50, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, cools_lava = 1},
 	sounds = default.node_sound_water_defaults(),
@@ -70,7 +70,7 @@ minetest.register_node(":default:water_flowing", {
 			},
 		},
 	},
-	alpha = 160,
+	alpha = 200,
 	paramtype = "light",
 	paramtype2 = "flowingliquid",
 	walkable = false,
@@ -86,7 +86,7 @@ minetest.register_node(":default:water_flowing", {
 	liquid_alternative_flowing = "default:water_flowing",
 	liquid_alternative_source = "default:water_source",
 	liquid_viscosity = 0,
-	post_effect_color = {a = 103, r = 30, g = 76, b = 90},
+	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1,
 		cools_lava = 1},
 	sounds = default.node_sound_water_defaults(),
@@ -97,7 +97,7 @@ minetest.register_node("water:kelp_water_source", {
 	drawtype = "liquid",
 	tiles = {
 		{
-			name = "default_water_source_animated.png",
+			name = "default_kelp_water_source_animated.png",
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -107,7 +107,7 @@ minetest.register_node("water:kelp_water_source", {
 			},
 		},
 		{
-			name = "default_water_source_animated.png",
+			name = "default_kelp_water_source_animated.png",
 			backface_culling = true,
 			animation = {
 				type = "vertical_frames",
@@ -117,7 +117,7 @@ minetest.register_node("water:kelp_water_source", {
 			},
 		},
 	},
-	alpha = 160,
+	alpha = 175,
 	paramtype = "light",
 	walkable = false,
 	pointable = false,
@@ -132,7 +132,7 @@ minetest.register_node("water:kelp_water_source", {
 	liquid_alternative_flowing = "water:kelp_water_flowing",
 	liquid_alternative_source = "water:kelp_water_source",
 	liquid_viscosity = 4.5,
-	post_effect_color = {a = 103, r = 0, g = 102, b = 51},
+	post_effect_color = {a = 175, r = 0, g = 102, b = 51},
 	--post_effect_color = {a = 50, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1, cools_lava = 1},
 	sounds = default.node_sound_water_defaults(),
@@ -144,7 +144,7 @@ minetest.register_node("water:kelp_water_flowing", {
 	tiles = {"default_water.png"},
 	special_tiles = {
 		{
-			name = "default_water_flowing_animated.png",
+			name = "default_kelp_water_flowing_animated.png",
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -154,7 +154,7 @@ minetest.register_node("water:kelp_water_flowing", {
 			},
 		},
 		{
-			name = "default_water_flowing_animated.png",
+			name = "default_kelp_water_flowing_animated.png",
 			backface_culling = true,
 			animation = {
 				type = "vertical_frames",
@@ -164,7 +164,7 @@ minetest.register_node("water:kelp_water_flowing", {
 			},
 		},
 	},
-	alpha = 160,
+	alpha = 12,
 	paramtype = "light",
 	paramtype2 = "flowingliquid",
 	walkable = false,
@@ -172,8 +172,8 @@ minetest.register_node("water:kelp_water_flowing", {
 	diggable = false,
 	buildable_to = true,
 	is_ground_content = false,
-	--light_propagates = true,
-	--sunlight_propagates = true,
+	light_propagates = true,
+	sunlight_propagates = true,
 	drop = "",
 	--drowning = 1,
 	liquidtype = "flowing",
@@ -221,6 +221,7 @@ minetest.register_node(":default:dark_water_source", {
 	--light_propagates = true,
 	--sunlight_propagates = true,
 	drop = "",
+	--light_source = 5,
 	drowning = 3,
 	liquidtype = "source",
 	liquid_alternative_flowing = "default:dark_water_source",
@@ -260,6 +261,7 @@ minetest.register_node(":default:dark_water_flowing", {
 	},
 	alpha = 160,
 	paramtype = "light",
+	--light_source = 5,
 	paramtype2 = "flowingliquid",
 	walkable = false,
 	pointable = false,
@@ -428,7 +430,7 @@ minetest.register_node(":default:mese_water_source", {
 minetest.register_node(":default:mese_water_flowing", {
 	description = "Flowing Water",
 	drawtype = "flowingliquid",
-	tiles = {"default_mese_water.png"},
+	--tiles = {"default_mese_water.png"},
 	special_tiles = {
 		{
 			name = "default_mese_water_flowing_animated.png",
@@ -742,3 +744,5 @@ minetest.register_node("water:charger", {
 		minetest.get_node_timer(pos):start(3.0)
 	end
 })
+
+	
