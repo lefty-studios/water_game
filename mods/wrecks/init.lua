@@ -26,7 +26,7 @@ minetest.register_decoration({
 	place_on = {"group:biome_sand","default:sand"},
 	place_offset_y = -4,
 	sidelen = 800,
-	fill_ratio = 0.0002,
+	fill_ratio = 0.000002,
 	y_max = 8,
 	y_min = 8,
 	flags = "force_placement",
