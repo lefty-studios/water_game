@@ -1,11 +1,14 @@
 local path = minetest.get_modpath(minetest.get_current_modname())
-
+dofile(path .. "/schems.lua")
 dofile(path .. "/mapgen.lua")
 dofile(path .. "/tools.lua")
+dofile(path .. "/decorations.lua")
+dofile(path .. "/biomes.lua")
 dofile(path .. "/ores.lua")
 dofile(path .. "/recipes.lua")
 dofile(path .. "/nodes.lua")
 dofile(path .. "/furnace.lua")
+
 
 minetest.register_item(":", {
 	type = "none",
