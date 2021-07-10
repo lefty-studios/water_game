@@ -1,0 +1,31 @@
+------------------------------------------------------------------------
+
+This is a hack to fix lighting and fluid transform issues automatically,
+using a carefully metered allotment of CPU time to do background
+recalculations.
+
+At the time of this mod's creation, minetest still has a lot of issues
+with lighting and fluid flow, especially when recalculating these things
+near the loaded/ignore frontier, and in map generation.
+
+Some example issues:
+	- Mapgen lighting seems to look only at the heightmap, and
+	  ignore other changes, such as adding water or trees, so e.g.
+	  the ocean floor will be incorrectly fully-lit.  Custom mapgen
+	  cannot seem to modify the heightmap, so large carve-outs may
+	  end up unlit.
+	- Large multi-node operations, such as tree growth or schematic
+	  placement, may create large shadowed areas.
+	- Fluids may still not flow properly into caves in some places.
+
+This mod addresses these by:
+	- Doing an extra fluid/lighting calc on each actual mapblock
+	  soon after map generation, to fix at-generation issues.
+	- Doing random background recalcs on mapblocks near players
+	  continuously as the game runs.
+
+See init.lua for configuration options.  Settings are set to sane
+defaults for a server that is NOT heavily loaded; some tuning may be
+necessary otherwise.
+
+------------------------------------------------------------------------
